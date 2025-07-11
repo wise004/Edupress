@@ -13,7 +13,7 @@ import {
   Award,
   DollarSign,
   User,
-  Home,
+
   PlusCircle
 } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
