@@ -1,0 +1,234 @@
+# ====================
+# LMS PROJECT GITIGNORE
+# ====================
+
+# General
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.log
+*.tmp
+*.temp
+*~
+*.swp
+*.swo
+
+# IDE Files
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+*.code-workspace
+
+# ====================
+# FRONTEND (React/Vite)
+# ====================
+
+# Dependencies
+frontend/node_modules/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+frontend/lerna-debug.log*
+
+# Build outputs
+frontend/dist/
+frontend/build/
+frontend/.next/
+frontend/out/
+
+# Environment variables
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Cache
+frontend/.cache/
+frontend/.parcel-cache/
+frontend/.npm/
+frontend/.eslintcache
+frontend/.stylelintcache
+
+# Coverage
+frontend/coverage/
+frontend/nyc_output/
+
+# Vite
+frontend/.vite/
+
+# ====================
+# BACKEND (Java/Spring Boot)
+# ====================
+
+# Compiled class files
+backend/target/
+backend/build/
+backend/out/
+backend/bin/
+backend/*.class
+
+# Maven
+backend/.mvn/
+backend/mvnw
+backend/mvnw.cmd
+backend/pom.xml.tag
+backend/pom.xml.releaseBackup
+backend/pom.xml.versionsBackup
+backend/pom.xml.next
+backend/release.properties
+backend/dependency-reduced-pom.xml
+backend/buildNumber.properties
+backend/.mvn/timing.properties
+
+# Gradle
+backend/.gradle/
+backend/gradle/
+backend/gradlew
+backend/gradlew.bat
+backend/gradle-app.setting
+backend/!gradle-wrapper.jar
+
+# Spring Boot
+backend/application-*.yml
+backend/application-*.yaml
+backend/application-*.properties
+!backend/src/main/resources/application.properties
+!backend/src/test/resources/application-test.properties
+
+# Database
+backend/*.db
+backend/*.sqlite
+backend/*.sqlite3
+backend/data/
+backend/database/
+
+# Logs
+backend/logs/
+backend/*.log
+backend/spring.log
+
+# Environment variables
+backend/.env
+backend/.env.local
+backend/.env.development
+backend/.env.production
+
+# ====================
+# UPLOADS & MEDIA
+# ====================
+
+# User uploaded files
+backend/uploads/
+frontend/public/uploads/
+uploads/
+media/
+files/
+attachments/
+
+# Exclude sample files but keep directory structure
+!backend/uploads/.gitkeep
+!frontend/public/uploads/.gitkeep
+
+# ====================
+# DOCKER
+# ====================
+
+# Docker
+.docker/
+docker-compose.override.yml
+.dockerignore
+
+# ====================
+# CERTIFICATES & KEYS
+# ====================
+
+# SSL Certificates
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.truststore
+
+# ====================
+# PACKAGE MANAGERS
+# ====================
+
+# npm
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ====================
+# TEMPORARY & SYSTEM
+# ====================
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
+
+# System files
+.fuse_hidden*
+.nfs*
+
+# ====================
+# DEVELOPMENT TOOLS
+# ====================
+
+# Testing
+*.orig
+*.rej
+
+# Documentation build
+docs/_build/
+site/
+
+# ====================
+# PRODUCTION & DEPLOYMENT
+# ====================
+
+# Production configurations
+config/production/
+.prod
+.production
+
+# Deployment scripts (if sensitive)
+deploy.sh
+deployment/
+
+# ====================
+# PERSONAL NOTES
+# ====================
+
+# Personal notes and TODO files
+TODO.md
+NOTES.md
+notes/
+todo/
+personal/
+
+# ====================
+# BACKUP FILES
+# ====================
+
+# Backup files
+*.backup
+*.old
+backup/

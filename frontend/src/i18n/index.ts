@@ -1,0 +1,1898 @@
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+
+// Translation resources
+const resources = {
+  uz: {
+    translation: {
+      // Navigation
+      "home": "Bosh sahifa",
+      "courses": "Kurslar",
+      "about": "Biz haqimizda",
+      "contact": "Aloqa",
+      "login": "Kirish",
+      "signup": "Ro'yxatdan o'tish",
+      "logout": "Chiqish",
+      
+      // Course related
+      "allCourses": "Barcha Kurslar",
+      "searchAndFilter": "Qidiruv va Filter",
+      "searchCourses": "Kurs qidirish",
+      "searchPlaceholder": "Kurs nomini kiriting...",
+      "category": "Kategoriya",
+      "level": "Daraja",
+      "price": "Narx",
+      "allCategories": "Barcha kategoriyalar",
+      "allLevels": "Barcha darajalar",
+      "allPrices": "Barchasi",
+      "free": "Bepul",
+      "paid": "Pullik",
+      "beginner": "Boshlang'ich",
+      "intermediate": "O'rta",
+      "advanced": "Murakkab",
+      
+      // Sorting
+      "mostPopular": "Eng ommabop",
+      "newest": "Eng yangi",
+      "priceLowToHigh": "Narx: Pastdan yuqoriga",
+      "priceHighToLow": "Narx: Yuqoridan pastga",
+      "highestRated": "Eng yuqori baholangan",
+      
+      // Course details
+      "students": "O'quvchilar",
+      "rating": "Baho",
+      "lessons": "Darslar",
+      "hours": "soat",
+      "instructor": "O'qituvchi",
+      "enrollNow": "Hoziroq yoziling",
+      "startLearning": "O'qishni boshlash",
+      "viewDetails": "Batafsil",
+      "progress": "Yutuq",
+      
+      // Dashboard
+      "overview": "Umumiy ko'rinish",
+      "userManagement": "Foydalanuvchilar boshqaruvi",
+      "courseManagement": "Kurslar boshqaruvi",
+      "addUser": "Foydalanuvchi qo'shish",
+      "addCourse": "Kurs qo'shish",
+      "edit": "Tahrirlash",
+      "delete": "O'chirish",
+      "publish": "Nashr qilish",
+      "unpublish": "Nashrdan olib tashlash",
+      "active": "Faol",
+      "inactive": "Nofaol",
+      "suspended": "To'xtatilgan",
+      
+      // Common
+      "save": "Saqlash",
+      "cancel": "Bekor qilish",
+      "loading": "Yuklanmoqda...",
+      "noResults": "Natija topilmadi",
+      "refresh": "Yangilash",
+      "previous": "Oldingi",
+      "next": "Keyingi",
+      "coursesFound": "ta kurs topildi",
+      "bestLearningMaterials": "Eng yaxshi o'quv materiallari",
+      "popularCategories": "Ommabop kategoriyalar",
+      "programming": "Dasturlash",
+      "design": "Dizayn",
+      "marketing": "Marketing",
+      "business": "Biznes",
+      "languages": "Tillar",
+      
+      // Hero section
+      "heroTitle": "Kelajakka qadam qo'ying",
+      "heroSubtitle": "Professional ko'nikmalarni o'rganing, karyerangizni rivojlantiring va muvaffaqiyatga erishing. 50,000+ o'quvchi bizga ishondi.",
+      "viewCourses": "Kurslarni ko'rish",
+      "learnMore": "Batafsil",
+      
+      // Stats
+      "totalStudents": "Jami o'quvchilar",
+      "totalCourses": "Jami kurslar",
+      "totalInstructors": "Jami o'qituvchilar",
+      "successRate": "Muvaffaqiyat foizi",
+      
+      // Additional messages
+      "noCoursesMessage": "Qidiruv mezonlaringizni o'zgartirib ko'ring",
+      "instructors": "O'qituvchilar",
+      "profile": "Profil",
+      
+      // HomePage specific
+      "findDirection": "O'zingizga mos yo'nalishni toping va professional rivojlaning",
+      "coursesCount": "ta kurs",
+      "featuredCourses": "Tavsiya etiladigan kurslar",
+      "qualityCourses": "Eng sifatli va ommabop kurslarimiz bilan tanishing",
+      "qualityEducation": "Sifatli ta'lim",
+      "qualityEducationDesc": "Malakali ustozlardan professional bilimlar oling",
+      "interactiveLessons": "Interaktiv darslar",
+      "interactiveLessonsDesc": "Video darslar, amaliy vazifalar va loyihalar",
+      "certificate": "Sertifikat",
+      "certificateDesc": "Kursni tugatganingizdan so'ng rasmiy sertifikat oling",
+      "community": "Hamjamiyat",
+      "communityDesc": "50,000+ faol o'quvchilar jamoasiga qo'shiling",
+      
+      // Footer specific
+      "companyDescription": "Dunyodagi o'quvchilarni yuqori sifatli onlayn ta'lim bilan kuchaytirish. Millionlab talabalar qatoriga qo'shiling va bugun o'z karyerangizni o'zgartiring.",
+      "quickLinks": "Tezkor havolalar",
+      "pricing": "Narxlar",
+      "blog": "Blog",
+      "categories": "Kategoriyalar",
+      "photography": "Fotografiya",
+      "contactInfo": "Aloqa ma'lumotlari",
+      "subscribeNewsletter": "Yangiliklar ro'yxatiga obuna bo'ling",
+      "yourEmail": "Sizning emailingiz",
+      "allRightsReserved": "Barcha huquqlar himoyalangan.",
+      "privacyPolicy": "Maxfiylik siyosati",
+      "termsOfService": "Foydalanish shartlari",
+      "cookiePolicy": "Cookie siyosati",
+
+      // Legal Pages Content
+      // Terms of Service
+      "termsTitle": "Foydalanish Shartlari",
+      "termsSubtitle": "Ushbu shartlar EduPress platformasidan foydalanishni tartibga soladi va barcha foydalanuvchilarning huquq va majburiyatlarini belgilaydi.",
+      "lastUpdated": "So'nggi yangilanish",
+      "importantNotice": "Muhim Eslatma",
+      "termsNoticeText": "EduPress dan foydalanishdan oldin ushbu Foydalanish Shartlarini diqqat bilan o'qing. Platformamizdan foydalanish orqali siz ushbu shartlarga rioya qilishga rozilik bildirasiz. Agar ushbu shartlarning biron bir qismi bilan rozi bo'lmasangiz, xizmatlarimizdan foydalana olmaysiz.",
+      "acceptanceOfTerms": "Shartlarni Qabul Qilish",
+      "userAccounts": "Foydalanuvchi Hisoblari",
+      "acceptableUse": "Foydalanishning Ruxsat Etilgan Shakli",
+      "paymentsAndRefunds": "To'lovlar va Qaytarishlar",
+      "intellectualProperty": "Intellektual Mulk",
+      "disclaimersAndLimitations": "Rad Etishlar va Cheklovlar",
+      "termination": "Tugatish",
+      "governingLaw": "Qo'llaniluvchi Qonun",
+      "contactInformation": "Aloqa Ma'lumotlari",
+      "changesToTerms": "Shartlardagi O'zgarishlar",
+
+      // Privacy Policy
+      "privacyTitle": "Maxfiylik Siyosati",
+      "privacySubtitle": "Sizning shaxsiy ma'lumotlaringizni qanday yig'ishimiz, ishlatishimiz va himoya qilishimiz haqida batafsil ma'lumot.",
+      "informationCollection": "Ma'lumot Yig'ish",
+      "howWeUseInfo": "Ma'lumotlardan Qanday Foydalanamiz",
+      "informationSharing": "Ma'lumot Almashish",
+      "dataSecurity": "Ma'lumotlar Xavfsizligi",
+      "yourRights": "Sizning Huquqlaringiz",
+      "cookiesAndTracking": "Cookie va Kuzatuv",
+      "dataRetention": "Ma'lumotlarni Saqlash",
+      "childrensPrivacy": "Bolalar Maxfiyligi",
+      "internationalTransfers": "Xalqaro O'tkazmalar",
+      "privacyUpdates": "Maxfiylik Yangilanishlari",
+
+      // Cookie Policy
+      "cookieTitle": "Cookie Siyosati",
+      "cookieSubtitle": "Veb-saytimizda cookie va shunga o'xshash texnologiyalardan qanday foydalanamiz.",
+      "whatAreCookies": "Cookie nima?",
+      "howWeUseCookies": "Cookie dan qanday foydalanamiz",
+      "typesOfCookies": "Cookie turlari",
+      "managingCookies": "Cookie ni Boshqarish",
+      "thirdPartyCookies": "Uchinchi Tomon Cookie",
+      "cookieConsent": "Cookie ga Rozilik",
+      "essentialCookies": "Majburiy Cookie",
+      "analyticalCookies": "Tahliliy Cookie",
+      "functionalCookies": "Funksional Cookie",
+      "targetingCookies": "Maqsadli Cookie",
+
+      // Detailed Legal Content - Terms of Service
+      "termsAcceptance1": "EduPress-dan foydalanish orqali siz ushbu Xizmat Shartlarini qabul qilasiz",
+      "termsAcceptance2": "Agar ushbu shartlarga rozi bo'lmasangiz, platformamizdan foydalanmang",
+      "termsAcceptance3": "Bu shartlar barcha foydalanuvchilarga, jumladan talabalar, o'qituvchilar va tashrif buyuruvchilarga taalluqlidir",
+      "termsAcceptance4": "Xizmatlarimizdan foydalanish uchun kamida 13 yoshda bo'lishingiz kerak",
+      "termsAcceptance5": "18 yoshgacha bo'lgan foydalanuvchilar uchun ota-onalar yoki vasiylar roziligi kerak",
+      
+      "userAccounts1": "Hisob ma'lumotlariningiz maxfiyligini saqlash sizning javobgarligingiz",
+      "userAccounts2": "Hisob yaratishda to'g'ri va to'liq ma'lumot berishingiz shart",
+      "userAccounts3": "Hisobingiz ostida sodir bo'ladigan barcha harakatlar uchun javobgarsiz",
+      "userAccounts4": "Hisobingizdan ruxsatsiz foydalanish haqida darhol xabar berishingiz kerak",
+      "userAccounts5": "Shartlarni buzgan hisoblarni to'xtatish yoki bekor qilish huquqini o'zimizda saqlaymiz",
+      
+      "acceptableUse1": "Platformamizdan faqat qonuniy maqsadlarda va ushbu shartlarga muvofiq foydalaning",
+      "acceptableUse2": "Zararli, haqoratli yoki noqonuniy kontent yuklash, ulashish yoki tarqatish taqiqlanadi",
+      "acceptableUse3": "O'qituvchilar va boshqa foydalanuvchilarning intellektual mulk huquqlarini hurmat qiling",
+      "acceptableUse4": "Platformamizni buzish, sindirishga harakat qilish taqiqlanadi",
+      "acceptableUse5": "Cheklovlarni chetlab o'tish yoki xususiyatlarni suiiste'mol qilish uchun bir nechta hisob yaratish taqiqlanadi",
+      
+      "paymentsRefunds1": "Kurs narxlari AQSh dollarida ko'rsatilgan va ogohlantirishsiz o'zgarishi mumkin",
+      "paymentsRefunds2": "Barcha to'lovlar bizning to'lov hamkorlari orqali xavfsiz tarzda qayta ishlanadi",
+      "paymentsRefunds3": "Ko'pgina kurslar uchun 30 kunlik pul qaytarish kafolati taklif qilamiz",
+      "paymentsRefunds4": "Pul qaytarish so'rovlari belgilangan muddat ichida berilishi kerak",
+      "paymentsRefunds5": "Obuna xizmatlari uchun boshqa pul qaytarish siyosatlari qo'llanilishi mumkin",
+      
+      "intellectualProperty1": "Barcha kurs kontenti mualliflik huquqi bilan himoyalangan va o'qituvchilar yoki EduPress mulki",
+      "intellectualProperty2": "Kurs kontentidan faqat shaxsiy, tijorat bo'lmagan o'rganish maqsadlarida foydalanishingiz mumkin",
+      "intellectualProperty3": "Kurs kontentini ruxsatsiz ulashish, qayta tarqatish yoki sotish taqiqlanadi",
+      "intellectualProperty4": "Foydalanuvchi tomonidan yaratilgan kontent (sharhlar, izohlar) sizning mulkingiz bo'lib qoladi, lekin bizga foydalanish huquqini berasiz",
+      "intellectualProperty5": "Intellektual mulk huquqlarini hurmat qilamiz va to'g'ri olib tashlash bildirishnomalariga javob beramiz",
+      
+      "disclaimers1": "Platformamiz hech qanday kafolatsiz \"mavjud holatda\" taqdim etiladi",
+      "disclaimers2": "Kurslar sizning maxsus ehtiyojlaringiz yoki kutishlaringizga mos kelishiga kafolat bermaymiz",
+      "disclaimers3": "Har qanday bilvosita, tasodifiy yoki oqibatli zararlar uchun javobgar emasmiz",
+      "disclaimers4": "Bizning umumiy javobgarligimiz siz to'lagan miqdor bilan cheklangan",
+      "disclaimers5": "Ba'zi yurisdiktsiyalar ma'lum cheklovlarga ruxsat bermaydi, shuning uchun bular sizga taalluqli bo'lmasligi mumkin",
+      
+      "termination1": "Hisob sozlamalarida istalgan vaqtda hisobingizni bekor qilishingiz mumkin",
+      "termination2": "Ushbu shartlarni buzganlik uchun hisobingizni to'xtatish yoki bekor qilishimiz mumkin",
+      "termination3": "Bekor qilingandan so'ng barcha kurs kontenti va platforma xususiyatlariga kirishni yo'qotasiz",
+      "termination4": "Ushbu shartlarning ba'zi qoldiqlari bekor qilingandan keyin ham saqlanib qoladi",
+      "termination5": "Jiddiy buzilishlar bundan mustasno, hisoblarni bekor qilishdan oldin oqilona ogohlantirish beramiz",
+      
+      "governingLawText1": "Ushbu Xizmat Shartlari Kaliforniya shtati, Qo'shma Shtatlar qonunlariga muvofiq boshqariladi va talqin qilinadi.",
+      "governingLawText2": "Ushbu shartlardan kelib chiqadigan har qanday nizolar Amerika Arbitraj Assotsiatsiyasi qoidalariga muvofiq majburiy arbitraj orqali hal qilinadi.",
+      
+      "termsContactText": "Ushbu Xizmat Shartlari haqida savollaringiz bo'lsa, biz bilan bog'laning:",
+      
+      "changesTermsText": "Istalgan vaqtda ushbu shartlarni o'zgartirish huquqini o'zimizda saqlaymiz. O'zgartirishlar kiritganimizda:",
+      "changesTerms1": "Yangilangan shartlarni ushbu sahifada joylashtiramiz",
+      "changesTerms2": "\"So'nggi yangilanish\" sanasini yangilaymiz",
+      "changesTerms3": "Muhim o'zgarishlar haqida foydalanuvchilarga email orqali xabar beramiz",
+      "changesTerms4": "Platformamizdan doimiy foydalanish yangi shartlarni qabul qilishni anglatadi",
+
+      // Privacy Policy Content
+      "privacyNoticeText": "Sizning maxfiyligingiz biz uchun muhim. Ushbu Maxfiylik Siyosati EduPress platformasidan foydalanganda shaxsiy ma'lumotlaringizni qanday yig'ishimiz, ishlatishimiz va himoya qilishimizni tushuntiradi.",
+      
+      "privacyCollection1": "Hisob yaratishda beradigan shaxsiy ma'lumotlaringiz (ism, email, profil rasmi)",
+      "privacyCollection2": "Kurs faoliyati ma'lumotlari: yutuq, test natijalari va topshiriqlar",
+      "privacyCollection3": "Uchinchi tomon to'lov protsessorlari orqali xavfsiz qayta ishlanadigan to'lov ma'lumotlari",
+      "privacyCollection4": "IP manzil, brauzer turi va qurilma ma'lumotlari kabi texnik ma'lumotlar",
+      "privacyCollection5": "Qo'llab-quvvatlash xizmati bilan bog'langaningizda aloqa yozismalari",
+      
+      "privacyUse1": "Ta'lim platformasi va xizmatlarini taqdim etish va saqlash",
+      "privacyUse2": "Kurs ro'yxatdan o'tishni qayta ishlash va o'rganish yutuqlarini kuzatish",
+      "privacyUse3": "Kurslar, platforma o'zgarishlari va hisob faoliyati haqida muhim yangilanishlar yuborish",
+      "privacyUse4": "Tahlil va foydalanuvchi fikr-mulohazalari orqali platformamizni yaxshilash",
+      "privacyUse5": "Mijozlarni qo'llab-quvvatlash va sizning so'rovlaringizga javob berish",
+      
+      "privacySharing1": "Shaxsiy ma'lumotlaringizni uchinchi shaxslarga sotmaymiz, almashmaymiz yoki ijaraga bermaymiz",
+      "privacySharing2": "O'qituvchilar ro'yxatdan o'tgan talabalarning asosiy profil ma'lumotlari va kurs yutuqlarini ko'rishlari mumkin",
+      "privacySharing3": "Platformamizni boshqarishda yordam beradigan xizmat ko'rsatuvchilar (hosting, to'lov qayta ishlash, tahlil)",
+      "privacySharing4": "Qonun talab qilganda yoki huquqlarimiz va xavfsizligimizni himoya qilish uchun qonuniy organlar",
+      "privacySharing5": "Biznes o'tkazish holatida, tegishli ogohlantirish va himoya choralari bilan",
+      
+      "privacySecurity1": "Ma'lumotlarni uzatish va saqlash uchun sanoat standartidagi shifrlash",
+      "privacySecurity2": "Muntazam xavfsizlik auditlari va zaiflik baholash",
+      "privacySecurity3": "PCI-ga mos to'lov provayderlari orqali xavfsiz to'lov qayta ishlash",
+      "privacySecurity4": "Tizimlarimiz uchun kirish nazorati va autentifikatsiya choralari",
+      "privacySecurity5": "Ma'lumotlar himoyasi va maxfiylik bo'yicha xodimlar uchun treninglar",
+      
+      "privacyRights1": "Hisobingizda saqlangan shaxsiy ma'lumotlaringizni ko'rish va tekshirish",
+      "privacyRights2": "Noto'g'ri shaxsiy ma'lumotlarni yangilash yoki tuzatish",
+      "privacyRights3": "Hisobingiz va bog'liq shaxsiy ma'lumotlarni o'chirishni so'rash",
+      "privacyRights4": "Ma'lumotlaringizni keng qo'llaniladigan formatda eksport qilish",
+      "privacyRights5": "Majburiy bo'lmagan aloqalar va marketing emaillaridan voz kechish",
+      
+      "privacyCookies1": "Platforma funksionalligi va foydalanuvchi autentifikatsiyasi uchun muhim cookie-lar",
+      "privacyCookies2": "Foydalanuvchilar platformamiz bilan qanday muloqot qilishini tushunish uchun tahliliy cookie-lar",
+      "privacyCookies3": "Til va ekran sozlamalaringizni eslab qolish uchun afzallik cookie-lari",
+      "privacyCookies4": "Brauzer sozlamalari orqali cookie afzalliklarini boshqarishingiz mumkin",
+      "privacyCookies5": "Cookie-lar o'chirilgan bo'lsa, ba'zi xususiyatlar to'g'ri ishlamasligi mumkin",
+      
+      "privacyRetention1": "Hisobingiz faol bo'lganda hisob ma'lumotlari saqlanadi",
+      "privacyRetention2": "Sertifikat maqsadlari uchun kurs yutuqi va tugatish ma'lumotlari saqlanadi",
+      "privacyRetention3": "Buxgalteriya va soliq muvofiqlik uchun to'lov yozuvlari (7 yil) saqlanadi",
+      "privacyRetention4": "Sifat ta'minoti uchun qo'llab-quvvatlash aloqalari 3 yil saqlanadi",
+      "privacyRetention5": "O'chirilgan hisob ma'lumotlari 30 kun ichida butunlay olib tashlanadi (qonuniy talablar bundan mustasno)",
+      
+      "privacyChildren1": "Bizning platformamiz 13 yoshgacha bo'lgan bolalar uchun mo'ljallanmagan",
+      "privacyChildren2": "13 yoshgacha bo'lgan bolalardan bilayotgan holda shaxsiy ma'lumot to'plamaymiz",
+      "privacyChildren3": "Ota-onalar/vasiylar voyaga etmaganlarning platforma foydalanishini nazorat qilishlari va rozi bo'lishlari kerak",
+      "privacyChildren4": "13 yoshgacha bo'lgan boladan ma'lumot to'plab olganimizni bilsak, uni o'chiramiz",
+      "privacyChildren5": "13 yoshgacha bo'lgan bola shaxsiy ma'lumot berganga ishonsangiz, darhol biz bilan bog'laning",
+      
+      "privacyTransfers1": "Ma'lumotlaringiz yashash joyingizdan tashqaridagi mamlakatlarga o'tkazilishi va qayta ishlanishi mumkin",
+      "privacyTransfers2": "Xalqaro ma'lumot o'tkazmalari uchun tegishli himoya choralarini ta'minlaymiz",
+      "privacyTransfers3": "Xizmat ko'rsatuvchilar bilan ma'lumotlarni qayta ishlash shartnomalariga maxfiylik himoyasi kiradi",
+      "privacyTransfers4": "EU foydalanuvchilari: o'tkazmalar GDPR talablari va etarlilik qarorlariga mos keladi",
+      "privacyTransfers5": "Ma'lumot o'tkazish amaliyotidagi muhim o'zgarishlar haqida sizga xabar beramiz",
+      
+      "privacyContactText": "Ushbu Maxfiylik Siyosati yoki ma'lumotlar amaliyotimiz haqida savollaringiz bo'lsa, biz bilan bog'laning:",
+      
+      "privacyUpdatesText": "Amaliyotimizdagi o'zgarishlarni aks ettirish yoki qonuniy va tartibga solish sabablari uchun vaqti-vaqti bilan ushbu Maxfiylik Siyosatini yangilashimiz mumkin. O'zgartirishlar kiritganimizda:",
+      "privacyUpdates1": "Yangilangan siyosatni ushbu sahifada joylashtiramiz",
+      "privacyUpdates2": "\"So'nggi yangilanish\" sanasini yangilaymiz",
+      "privacyUpdates3": "Muhim o'zgarishlar uchun email yoki platforma bildirishnomasi orqali xabar beramiz",
+      "privacyUpdates4": "Doimiy foydalanish yangilangan siyosatni qabul qilishni anglatadi",
+
+      // Cookie Policy Content
+      "essentialCookiesDesc": "Asosiy veb-sayt funksionalligi uchun zarur",
+      "analyticalCookiesDesc": "Tashrif buyuruvchilar veb-saytimizdan qanday foydalanishini tushunishga yordam beradi",
+      "functionalCookiesDesc": "Afzalliklaringizni eslab qoladi va tajribangizni yaxshilaydi",
+      "targetingCookiesDesc": "Shaxsiylashtirilgan kontent va reklama uchun ishlatiladi",
+      
+      "essentialCookie1": "Autentifikatsiya va kirish seanslari",
+      "essentialCookie2": "Xavfsizlik va firibgarlikka qarshi himoya",
+      "essentialCookie3": "Til va mintaqa afzalliklari",
+      "essentialCookie4": "Savatcha va kurs tanlovlari",
+      "essentialCookie5": "Asosiy veb-sayt funksionalligi",
+      
+      "analyticalCookie1": "Veb-sayt trafigi tahlili uchun Google Analytics",
+      "analyticalCookie2": "Kurs sahifalarida foydalanuvchi xatti-harakatlarini kuzatish",
+      "analyticalCookie3": "Ishlashni monitoring qilish va optimallashtirish",
+      "analyticalCookie4": "Xususiyatlarni yaxshilash uchun A/B testing",
+      "analyticalCookie5": "Xatolarni kuzatish va bug hisoboti",
+      
+      "functionalCookie1": "Til va joylashuv sozlamalari",
+      "functionalCookie2": "Mavzu afzalliklari (qorong'u/yorug' rejim)",
+      "functionalCookie3": "Video pleer sozlamalari va sifati",
+      "functionalCookie4": "Kurs yutuqi va xatcho'plar",
+      "functionalCookie5": "Bildirishnoma afzalliklari",
+      
+      "targetingCookie1": "Qiziqishlarga asoslangan kurs tavsiyalar",
+      "targetingCookie2": "Shaxsiylashtirilgan kontent va takliflar",
+      "targetingCookie3": "Ijtimoiy media integratsiyasi va ulashish",
+      "targetingCookie4": "Uchinchi tomon reklama tarmoqlari",
+      "targetingCookie5": "Platformalararo foydalanuvchi kuzatuvi",
+      
+      "cookiesExplanation1": "Cookie-lar veb-saytimizga tashrif buyurganingizda qurilmangizda saqlanadigan kichik matn fayllari. Ular afzalliklaringizni eslab qolish, tizimga kirishni saqlash va platformamizdan qanday foydalanishingizni tushunish orqali yaxshiroq brauzing tajribasi taqdim etishda yordam beradi.",
+      "cookiesExplanation2": "Biz o'rganish tajribangizni yaxshilash va xizmatlarimizni rivojlantirish uchun birinchi tomon cookie-lari (EduPress tomonidan o'rnatilgan) va uchinchi tomon cookie-laridan (hamkorlarimiz tomonidan o'rnatilgan) foydalanamiz.",
+      
+      // Additional hero section
+      "startLearningToday": "Bugun yangi ko'nikma o'rganishni boshlang",
+      "professionalSkillsDesc": "Professional karyerangizni rivojlantirish uchun hoziroq ro'yxatdan o'ting",
+      "freeRegistration": "Bepul ro'yxatdan o'tish",
+      
+      // Pricing page
+      "chooseLearningPlan": "O'quv rejangizni tanlang",
+      "startLearningFree": "Bepul boshlab, keyin ko'proq imkoniyatlarni oching",
+      "monthly": "Oylik",
+      "annual": "Yillik",
+      "save20": "20% tejang",
+      
+      // Plan names and descriptions
+      "freePlan": "Bepul",
+      "proPlan": "Pro",
+      "premiumPlan": "Premium",
+      "perfectForGettingStarted": "Boshlash uchun mukammal",
+      "bestForSeriousLearners": "Jiddiy o'quvchilar uchun eng yaxshi",
+      "forProfessionalsAndTeams": "Professional va jamoalar uchun",
+      
+      // Features
+      "freeCoursesAccess": "3 ta bepul kurs",
+      "basicCommunityAccess": "Asosiy jamiyat kirishi",
+      "courseCompletionCertificates": "Kurs tugash sertifikatlari",
+      "mobileAppAccess": "Mobil ilova kirishi",
+      "downloadOfflineViewing": "Oflayn ko'rish uchun yuklab olish",
+      "prioritySupport": "Birinchi navbatdagi yordam",
+      "advancedAnalytics": "Kengaytirilgan tahlil",
+      "customLearningPaths": "Moslashtirilgan o'quv yo'llari",
+      "unlimitedCourseAccess": "Cheklanmagan kurs kirishi",
+      "fullCommunityAccess": "To'liq jamiyat kirishi",
+      "verifiedCertificates": "Tasdiqlangan sertifikatlar",
+      "priorityEmailSupport": "Birinchi navbatdagi email yordam",
+      "basicAnalytics": "Asosiy tahlil",
+      "everythingInPro": "Pro rejadagi barcha imkoniyatlar",
+      "oneOnOneMentoring": "1-dan-1 ga mentorlik seanslari",
+      "advancedCertificates": "Kengaytirilgan sertifikatlar",
+      "teamCollaboration": "Jamoa hamkorligi vositalari",
+      "prioritySupportPhone": "Birinchi navbatdagi yordam + telefon",
+      "advancedAnalyticsInsights": "Kengaytirilgan tahlil va tushunchalar",
+      "apiAccess": "API kirish",
+      
+      // CTA buttons
+      "getStartedFree": "Bepul boshlash",
+      "startProTrial": "Pro sinovini boshlash",
+      "goPremium": "Premium ga o'tish",
+      
+      // Enterprise section
+      "needSomethingCustom": "Moslashtirilgan narsa kerakmi?",
+      "enterpriseSolutions": "Katta jamoalar va tashkilotlar uchun korporativ yechimlar taklif qilamiz",
+      "enterprisePlan": "Korporativ reja",
+      "customUserLimits": "Moslashtirilgan foydalanuvchi cheklovlari",
+      "dedicatedAccountManager": "Maxsus hisob menejeri",
+      "ssoAdvancedSecurity": "SSO va kengaytirilgan xavfsizlik",
+      "customIntegrations": "Moslashtirilgan integratsiyalar",
+      "prioritySupport24_7": "24/7 birinchi navbatdagi yordam",
+      "customPricing": "Moslashtirilgan narx",
+      "tailoredToYourNeeds": "Tashkilotingiz ehtiyojlariga moslashtirilgan",
+      "contactSales": "Savdo bo'limi bilan bog'laning",
+      
+      // FAQ section
+      "frequentlyAskedQuestions": "Tez-tez so'raladigan savollar",
+      "everythingAboutPricing": "Narxlar haqida bilishingiz kerak bo'lgan barcha narsa",
+      "canSwitchPlansAnytime": "Istalgan vaqtda rejalarni almashtira olamanmi?",
+      "canSwitchPlansAnswer": "Ha, istalgan vaqtda rejangizni yangilash yoki pasaytirish mumkin. O'zgarishlar keyingi to'lov davrida aks etadi.",
+      "isThereFreeTrial": "Bepul sinov bormi?",
+      "freeTrialAnswer": "Ha! Barcha pullik rejalar 14 kunlik bepul sinov bilan keladi. Boshlash uchun kredit karta talab qilinmaydi.",
+      "whatPaymentMethods": "Qanday to'lov usullarini qabul qilasiz?",
+      "paymentMethodsAnswer": "Biz barcha asosiy kredit kartalari, PayPal va yillik rejalar uchun bank o'tkazmalarini qabul qilamiz.",
+      "canGetRefund": "Pulni qaytarib olishim mumkinmi?",
+      "refundAnswer": "Ha, biz barcha pullik rejalar uchun 30 kunlik pul qaytarish kafolatini taklif qilamiz.",
+      "studentDiscounts": "Talabalar uchun chegirmalar bormi?",
+      "studentDiscountsAnswer": "Ha! Talabalar haqiqiy talaba email manzili bilan barcha pullik rejalardan 50% chegirma olishadi.",
+      "teamEnterprisePlan": "Jamoa yoki korporativ reja bormi?",
+      "teamEnterprisePlanAnswer": "Ha, biz 10 yoki undan ko'p kishilik jamoalar uchun moslashtirilgan korporativ rejalar taklif qilamiz. Tafsilotlar uchun savdo jamoamiz bilan bog'laning.",
+      
+      // Final CTA
+      "readyToStartLearning": "O'qishni boshlashga tayyormisiz?",
+      "joinThousandsStudents": "Karyeralarini o'zgartirayotgan minglab talabalar qatoriga qo'shiling",
+      "startYourFreeTrial": "Bepul sinovni boshlang",
+      
+      // Blog page
+      "learningInsightsResources": "O'quv ko'nikmasi va manbalar",
+      "stayUpdatedWithTrends": "Onlayn ta'lim va texnologiya dunyosidan eng so'nggi tendentsiyalar, maslahatlar va bilimlar bilan yangilanib turing",
+      "searchArticles": "Maqolalar, mavzular yoki mualliflarni qidiring...",
+      "featuredArticle": "Tanlangan maqola",
+      "allPosts": "Barcha maqolalar",
+      "blogCategories": "Kategoriyalar",
+      "popularTags": "Ommabop teglar",
+      "readMore": "Batafsil o'qish",
+      "byAuthor": "Muallif:",
+      "minRead": "daqiqada o'qiladi",
+      "relatedArticles": "Tegishli maqolalar",
+      "newsletterSubscribe": "Yangiliklar ro'yxatiga obuna bo'ling",
+      "getLatestArticles": "Eng so'nggi maqolalarni email orqali oling",
+      
+      // About page
+      "empoweringLearners": "O'quvchilarni qudratlashtirish",
+      "aroundTheWorld": "Butun dunyo bo'ylab",
+      "aboutDescription": "EduPress da biz sifatli ta'lim hamma uchun ochiq bo'lishi kerak deb ishontamiz. Bizning missiyamiz o'quvchilarni dunyo darajasidagi o'qituvchilar va ilg'or mazmun bilan bog'lashdir.",
+      "watchOurStory": "Bizning hikoyamizni tomosha qiling",
+      "yearsExperience": "Yillik tajriba",
+      "studentsTaught": "O'qitilgan talabalar",
+      "coursesAvailable": "Mavjud kurslar",
+      "expertInstructors": "Ekspert o'qituvchilar",
+      "ourCoreValues": "Bizning asosiy qadriyatlarimiz",
+      "coreValuesDescription": "Bu tamoyillar bizning barcha ishlarimizni boshqaradi va mukammallik majburiyatimizni shakllantiradi",
+      "ourMission": "Bizning missiyamiz",
+      "ourMissionDescription": "Sifatli ta'limni demokratlashtirish va o'rganishni hamma uchun, hamma joyda ochiq qilish.",
+      "excellence": "Mukammallik",
+      "excellenceDescription": "Biz qilayotgan barcha ishda, kurs mazmunidan tortib talaba yordamiga qadar mukammallikka intilmoqdamiz.",
+      "studentFirst": "Talaba birinchi o'rinda",
+      "studentFirstDescription": "Biz qabul qilayotgan har bir qaror talabalarimiz uchun eng yaxshi o'rganish tajribasini yaratishga qaratilgan.",
+      "communityValue": "Jamoa",
+      "communityValueDescription": "Bir-birini qo'llab-quvvatlaydigan va ilhomlantiruvchi o'quvchilarning global jamiyatini qurish.",
+      "meetOurTeam": "Bizning jamoa bilan tanishing",
+      "teamDescription": "Onlayn ta'limni o'zgartirishga bag'ishlangan ishtiyoqli pedagoglat va innovatorlar",
+      "ourStory": "Bizning hikoyamiz",
+      "storyParagraph1": "2020-yilda tashkil etilgan EduPress yuqori sifatli, qulay onlayn ta'limga ehtiyoj borligini tan olgan kichik pedagog jamoasi sifatida boshlangan. Biz talabalar ham keng qamrovli, ham qiziqarli kurslarni topishda qiynalayotganini ko'rdik.",
+      "storyParagraph2": "Bugun biz butun dunyo bo'ylab 50,000 dan ortiq talabalarga xizmat ko'rsatadigan global platformaga aylandik. Bizning kurslarimiz soha ekspertlari tomonidan ishlab chiqilgan va o'rganishni interaktiv va samarali qiladigan ilg'or texnologiya orqali taqdim etiladi.",
+      "storyParagraph3": "Ammo bizning missiyamiz bir xil bo'lib qolmoqda: ta'lim to'siqlarini yo'q qilish va har bir o'quvchiga kelib chiqishi yoki joylashgan joyidan qat'i nazar, maqsadlariga erishishda yordam berish.",
+      "readyToStartJourney": "O'rganish sayohatingizni boshlashga tayyormisiz?",
+      "transformCareersDescription": "Bizning kurslarimiz bilan o'z karerasini o'zgartirgan minglab talabalar qatoriga qo'shiling.",
+      "browseCourses": "Kurslarni ko'rish",
+      
+      // Instructors page
+      "learnFromExperts": "Soha ekspertlaridan o'rganing",
+      "expertsDescription": "Bizning o'qituvchilarimiz Google, Apple va Meta kabi yirik kompaniyalarning amaliy mutaxassislari. Kelajakni quruvchi odamlardan ilg'or ko'nikmalarni o'rganing.",
+      "averageRating": "O'rtacha reyting",
+      "meetOurInstructors": "Bizning o'qituvchilar bilan tanishing",
+      "worldClassProfessionals": "Dunyo darajasidagi mutaxassislar o'z tajribalarini va amaliy bilimlarini baham ko'rishmoqda",
+      "viewProfile": "Profilni ko'rish",
+      "shareYourExpertise": "Tajribangizni baham ko'ring",
+      "instructorCTADescription": "Ekspert o'qituvchilar jamiyatiga qo'shiling va keyingi avlod mutaxassislarini shakllantirishga yordam bering. Farq yaratish bilan birga pul topish.",
+      "becomeInstructor": "O'qituvchi bo'ling",
+      
+      // Team member roles and bios
+      "founderCEO": "Asoschisi va Bosh direktor",
+      "cto": "Texnik direktor",
+      "headOfContent": "Kontent boshlig'i",
+      "headOfMarketing": "Marketing boshlig'i",
+      "seniorSoftwareEngineer": "Katta dasturiy ta'minot muhandisi",
+      "uxDesignDirector": "UX dizayn direktori",
+      "digitalMarketingExpert": "Raqamli marketing eksperti",
+      "dataScienceLead": "Ma'lumotlar fani rahbari",
+      "businessStrategyConsultant": "Biznes strategiya konsultanti",
+      "cloudSolutionsArchitect": "Bulut yechimlari arxitektori",
+      
+      // Contact page
+      "getInTouch": "Bog'lanish",
+      "contactPageDescription": "Savollaringiz bormi? Sizdan eshitishdan xursand bo'lamiz. Bizga xabar yuboring, iloji boricha tezroq javob beramiz.",
+      "sendMessage": "Bizga xabar yuboring",
+      "firstName": "Ism",
+      "lastName": "Familiya",
+      "emailAddress": "Email manzil",
+      "subject": "Mavzu",
+      "message": "Xabar",
+      "sendMessageButton": "Xabar yuborish",
+      "emailUs": "Bizga email yuboring",
+      "emailDescription": "Istalgan vaqtda email yuboring",
+      "callUs": "Bizga qo'ng'iroq qiling",
+      "callDescription": "Dush-Jum 8:00 dan 18:00 gacha EST",
+      "visitUs": "Bizga tashrif buyuring",
+      "visitDescription": "Ofisimizga kelib salom ayting",
+      "officeHours": "Ish vaqti",
+      "officeHoursContent": "Dushanba - Juma: 8:00 dan 18:00 gacha EST",
+      "officeHoursDescription": "Dam olish kunlari: 10:00 dan 16:00 gacha EST",
+      "needQuickHelp": "Tezkor yordam kerakmi?",
+      "selfServiceDescription": "Tezroq yordam olish uchun o'z-o'ziga xizmat ko'rsatish variantlarini ko'rib chiqing.",
+      "liveChat": "Jonli chat",
+      "liveChatDescription": "Qo'llab-quvvatlash jamoamizdan darhol yordam oling",
+      "startChat": "Chatni boshlash",
+      "helpCenter": "Yordam markazi",
+      "helpCenterDescription": "Keng qamrovli FAQ va qo'llanmalarni ko'rib chiqing",
+      "visitHelpCenter": "Yordam markaziga tashrif buyuring",
+      "communityForum": "Jamoa forumi",
+      "communityForumDescription": "Boshqa o'quvchilar va o'qituvchilar bilan bog'laning",
+      "joinCommunity": "Jamiyatga qo'shiling",
+      "visitOurOffice": "Ofisimizga tashrif buyuring",
+      "officeVisitDescription": "Qahva ichib, o'rganish maqsadlaringiz haqida suhbatlashish uchun keling",
+      "mapPlaceholder": "Bu yerda interaktiv xarita joylashtiriladi",
+      "frequentlyAskedQuestionsContact": "Ko'p beriladigan savollar",
+      "faqDescription": "Keng tarqalgan savollarga tez javoblar",
+      
+      // Contact form subjects
+      "generalInquiry": "Umumiy so'rov",
+      "courseSupport": "Kurs yordami",
+      "technicalIssue": "Texnik muammo",
+      "partnership": "Hamkorlik",
+      "billingQuestion": "To'lov savoli",
+      "other": "Boshqa",
+      
+      // Form placeholders
+      "firstNamePlaceholder": "Anvar",
+      "lastNamePlaceholder": "Aliyev",
+      "emailPlaceholder": "anvar@example.com",
+      "messagePlaceholder": "Sizga qanday yordam bera olishimizni ayting...",
+      
+      // FAQ items
+      "faqQuestion1": "Kurslarni qanday boshlash mumkin?",
+      "faqAnswer1": "Oddiy kurlar katalogini ko'rib chiqing, sizni qiziqqan kursni tanlang va 'Hoziroq yoziling' tugmasini bosing. Barcha kurs materiallariga darhol kirishingiz mumkin.",
+      "faqQuestion2": "Agar qoniqmasam, pulimni qaytarib olsam bo'ladimi?",
+      "faqAnswer2": "Ha, biz barcha kurslarda 30 kunlik pul qaytarish kafolatini taklif qilamiz. Agar to'liq qoniqmasangiz, to'liq qaytarish uchun qo'llab-quvvatlash jamoamiz bilan bog'laning.",
+      "faqQuestion3": "Kursni tugatgandan so'ng sertifikat berasizlarmi?",
+      "faqAnswer3": "Albatta! Kursni muvaffaqiyatli tugatgandan so'ng, LinkedIn'da baham ko'rishingiz va professional portfolioingizga qo'shishingiz mumkin bo'lgan sertifikat olasiz.",
+      "faqQuestion4": "Mobil ilova mavjudmi?",
+      "faqAnswer4": "Ha, bizning mobil ilovamiz iOS va Android'da mavjud. Kurs materiallarini yuklab olib, qulay vaqtingizda oflayn o'rganishingiz mumkin.",
+      
+      // Dashboard translations
+      "studentDashboard": "Talaba paneli",
+      "instructorDashboard": "O'qituvchi paneli", 
+      "adminDashboard": "Administrator paneli",
+      "dashboardOverview": "Umumiy ko'rinish",
+      
+      // Dashboard object for admin panel
+      "dashboard": {
+        "admin": {
+          "title": "Administrator paneli",
+          "subtitle": "To'lov boshqaruvi va statistikalar"
+        },
+        "demoMode": {
+          "title": "Demo rejimi",
+          "description": "Siz demo ma'lumotlarni ko'ryapsiz. Haqiqiy statistikalarni ko'rish uchun administrator sifatida tizimga kiring."
+        },
+        "stats": {
+          "totalUsers": "Jami foydalanuvchilar",
+          "totalCourses": "Jami kurslar",
+          "freeCourses": "Bepul kurslar",
+          "paidCourses": "Pullik kurslar",
+          "students": "Talabalar",
+          "instructors": "O'qituvchilar",
+          "totalRevenue": "Jami daromad",
+          "totalPayments": "Jami to'lovlar",
+          "successfulPayments": "Muvaffaqiyatli to'lovlar",
+          "totalTransactions": "Jami tranzaksiyalar",
+          "revenue": "Daromad",
+          "successRate": "Muvaffaqiyat foizi"
+        },
+        "tabs": {
+          "overview": "Umumiy ko'rinish",
+          "users": "Foydalanuvchilar",
+          "courses": "Kurslar",
+          "transactions": "Tranzaksiyalar",
+          "analytics": "Tahlillar",
+          "payments": "To'lovlar",
+          "settings": "Sozlamalar",
+          "reports": "Hisobotlar"
+        },
+        "payments": {
+          "stripe": {
+            "title": "Stripe to'lovlari"
+          },
+          "payme": {
+            "title": "Payme to'lovlari"
+          }
+        },
+        "comingSoon": "Tez orada..."
+      },
+      
+      // Common elements
+      "common": {
+        "loading": "Yuklanmoqda...",
+        "refresh": "Yangilash",
+        "cancel": "Bekor qilish",
+        "save": "Saqlash",
+        "edit": "Tahrirlash",
+        "delete": "O'chirish",
+        "actions": "Harakatlar",
+        "free": "Bepul",
+        "periods": {
+          "last7Days": "So'nggi 7 kun",
+          "last30Days": "So'nggi 30 kun",
+          "last90Days": "So'nggi 90 kun",
+          "allTime": "Barcha vaqt"
+        },
+        "roles": {
+          "student": "Talaba",
+          "instructor": "O'qituvchi",
+          "admin": "Administrator"
+        },
+        "status": {
+          "active": "Faol",
+          "inactive": "Nofaol",
+          "suspended": "To'xtatilgan"
+        },
+        "courseStatus": {
+          "published": "Nashr qilingan",
+          "draft": "Qoralama",
+          "archived": "Arxivlangan"
+        },
+        "courseLevel": {
+          "beginner": "Boshlang'ich",
+          "intermediate": "O'rta",
+          "advanced": "Yuqori"
+        }
+      },
+      
+      "myCourses": "Mening kurslarim",
+      "assignments": "Vazifalar",
+      "quizzes": "Testlar",
+      "dashboardCertificates": "Sertifikatlar",
+      "manageCourses": "Kurslarni boshqarish",
+      "dashboardStudents": "Talabalar",
+      "manageAssignments": "Vazifalarni boshqarish",
+      "manageQuizzes": "Testlarni boshqarish",
+      "videos": "Videolar",
+      "comments": "Izohlar",
+      "issueCertificates": "Sertifikat berish",
+      "dashboardAnalytics": "Tahlillar",
+      "dashboardAllCourses": "Barcha kurslar",
+      "allUsers": "Barcha foydalanuvchilar",
+      "systemAnalytics": "Tizim tahlili",
+      "payments": "To'lovlar",
+      "dashboardSettings": "Sozlamalar",
+      "quickActions": "Tezkor harakatlar",
+      "createCourse": "Kurs yaratish",
+      "createQuiz": "Test yaratish",
+      "backToSite": "Saytga qaytish",
+      "backToMainSite": "Asosiy saytga qaytish",
+      
+      // Cart translations
+      "shoppingCart": "Xarid savati",
+      "cartEmpty": "Savatingiz bo'sh",
+      "cartEmptyDescription": "O'qish sayohatingizni boshlash uchun kurslar qo'shing",
+      "backToCourses": "Kurslarga qaytish",
+      "items": "elementlar",
+      "inCart": "savatda",
+      "by": "tomonidan",
+      "remove": "o'chirish",
+      "orderSummary": "Buyurtma xulasasi",
+      "subtotal": "Oraliq jami",
+      "tax": "Soliq",
+      "total": "Jami",
+      "proceedToCheckout": "To'lovga o'tish",
+      "30DayMoneyBack": "30 kunlik pul qaytarish kafolati",
+      
+      // Profile translations
+      "myProfile": "Mening profilim",
+      "backToHome": "Bosh sahifaga qaytish",
+      "editProfile": "Profilni tahrirlash",
+      "memberSince": "A'zo bo'lgan",
+      "totalLearningTime": "Umumiy o'qish vaqti",
+      "aboutMe": "Men haqimda",
+      "bio": "Biografiya",
+      "learningProgress": "O'qish jarayoni",
+      "completionRate": "Tugallanish darajasi",
+      "trackProgress": "O'quv jarayoningiz va yutuqlaringizni kuzatib boring",
+      "demoMode": "Demo rejimi",
+      "demoModeDescription": "Siz sinov ma'lumotlarini ko'ryapsiz. Haqiqiy o'quv jarayoningizni ko'rish uchun talaba sifatida tizimga kiring.",
+      "loadingDashboard": "Talaba paneli yuklanmoqda...",
+      "enrolledCourses": "Yozilgan kurslar",
+      "completed": "Tugallangan",
+      "inProgress": "Jarayonda",
+      "hoursLearned": "O'rganilgan soatlar",
+      "avgProgress": "O'rtacha jarayon",
+      "dayStreak": "kunlik seriya",
+      "recentCourses": "So'nggi kurslar",
+      "upcomingDeadlines": "Yaqinlashayotgan muddatlar",
+      "noRecentCourses": "So'nggi kurslar yo'q",
+      "noUpcomingDeadlines": "Yaqinlashayotgan muddatlar yo'q",
+      "myEnrolledCourses": "Mening yozilgan kurslarim",
+      "trackLearningProgress": "O'quv jarayoni va yutuqlaringizni kuzatib boring",
+      "continueLearning": "O'qishni davom ettirish",
+      "certificatesAchievements": "Sertifikatlar va yutuqlar",
+      "noEnrolledCourses": "Yozilgan kurslar yo'q",
+      "browseCourseCatalog": "O'qishni boshlash uchun kurs katalogini ko'rib chiqing",
+      "progressTrackingDetails": "Batafsil yutuq kuzatuvi va tahlillar shu yerda ko'rsatiladi",
+      "earnedCertificates": "Sizning qo'lga kiritgan sertifikatlaringiz va kurs tugatish nishonlaringiz shu yerda paydo bo'ladi"
+    }
+  },
+  en: {
+    translation: {
+      // Navigation
+      "home": "Home",
+      "courses": "Courses",
+      "about": "About",
+      "contact": "Contact",
+      "login": "Login",
+      "signup": "Sign Up",
+      "logout": "Logout",
+      
+      // Course related
+      "allCourses": "All Courses",
+      "searchAndFilter": "Search and Filter",
+      "searchCourses": "Search courses",
+      "searchPlaceholder": "Enter course name...",
+      "category": "Category",
+      "level": "Level",
+      "price": "Price",
+      "allCategories": "All Categories",
+      "allLevels": "All Levels",
+      "allPrices": "All",
+      "free": "Free",
+      "paid": "Paid",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      
+      // Sorting
+      "mostPopular": "Most Popular",
+      "newest": "Newest",
+      "priceLowToHigh": "Price: Low to High",
+      "priceHighToLow": "Price: High to Low",
+      "highestRated": "Highest Rated",
+      
+      // Course details
+      "students": "Students",
+      "rating": "Rating",
+      "lessons": "Lessons",
+      "hours": "hours",
+      "instructor": "Instructor",
+      "enrollNow": "Enroll Now",
+      "startLearning": "Start Learning",
+      "viewDetails": "View Details",
+      "progress": "Progress",
+      
+      // Dashboard
+      "overview": "Overview",
+      "userManagement": "User Management",
+      "courseManagement": "Course Management",
+      "addUser": "Add User",
+      "addCourse": "Add Course",
+      "edit": "Edit",
+      "delete": "Delete",
+      "publish": "Publish",
+      "unpublish": "Unpublish",
+      "active": "Active",
+      "inactive": "Inactive",
+      "suspended": "Suspended",
+      
+      // Common
+      "save": "Save",
+      "cancel": "Cancel",
+      "loading": "Loading...",
+      "noResults": "No results found",
+      "refresh": "Refresh",
+      "previous": "Previous",
+      "next": "Next",
+      "coursesFound": "courses found",
+      "bestLearningMaterials": "Best learning materials",
+      "popularCategories": "Popular Categories",
+      "programming": "Programming",
+      "design": "Design",
+      "marketing": "Marketing",
+      "business": "Business",
+      "languages": "Languages",
+      
+      // Hero section
+      "heroTitle": "Step into the Future",
+      "heroSubtitle": "Learn professional skills, develop your career and achieve success. 50,000+ students trust us.",
+      "viewCourses": "View Courses",
+      "learnMore": "Learn More",
+      
+      // Stats
+      "totalStudents": "Total Students",
+      "totalCourses": "Total Courses",
+      "totalInstructors": "Total Instructors",
+      "successRate": "Success Rate",
+      
+      // Additional messages
+      "noCoursesMessage": "Try changing your search criteria",
+      "instructors": "Instructors",
+      "profile": "Profile",
+      
+      // HomePage specific
+      "findDirection": "Find your direction and develop professionally",
+      "coursesCount": "courses",
+      "featuredCourses": "Featured Courses",
+      "qualityCourses": "Discover our highest quality and most popular courses",
+      "qualityEducation": "Quality Education",
+      "qualityEducationDesc": "Get professional knowledge from qualified instructors",
+      "interactiveLessons": "Interactive Lessons",
+      "interactiveLessonsDesc": "Video lessons, practical tasks and projects",
+      "certificate": "Certificate",
+      "certificateDesc": "Receive an official certificate upon course completion",
+      "community": "Community",
+      "communityDesc": "Join a community of 50,000+ active learners",
+      
+      // Footer specific
+      "companyDescription": "Empowering learners worldwide with high-quality online education. Join millions of students and transform your career today.",
+      "quickLinks": "Quick Links",
+      "pricing": "Pricing",
+      "blog": "Blog",
+      "categories": "Categories",
+      "photography": "Photography",
+      "contactInfo": "Contact Info",
+      "subscribeNewsletter": "Subscribe to Newsletter",
+      "yourEmail": "Your email",
+      "allRightsReserved": "All rights reserved.",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "cookiePolicy": "Cookie Policy",
+
+      // Legal Pages Content
+      // Terms of Service
+      "termsTitle": "Terms of Service",
+      "termsSubtitle": "These terms govern your use of EduPress and outline the rights and responsibilities of all users.",
+      "lastUpdated": "Last updated",
+      "importantNotice": "Important Notice",
+      "termsNoticeText": "Please read these Terms of Service carefully before using EduPress. By using our platform, you agree to be bound by these terms. If you don't agree with any part of these terms, you may not use our services.",
+      "acceptanceOfTerms": "Acceptance of Terms",
+      "userAccounts": "User Accounts",
+      "acceptableUse": "Acceptable Use",
+      "paymentsAndRefunds": "Payments and Refunds",
+      "intellectualProperty": "Intellectual Property",
+      "disclaimersAndLimitations": "Disclaimers and Limitations",
+      "termination": "Termination",
+      "governingLaw": "Governing Law",
+      "contactInformation": "Contact Information",
+      "changesToTerms": "Changes to Terms",
+
+      // Privacy Policy
+      "privacyTitle": "Privacy Policy",
+      "privacySubtitle": "Detailed information about how we collect, use, and protect your personal information.",
+      "informationCollection": "Information Collection",
+      "howWeUseInfo": "How We Use Information",
+      "informationSharing": "Information Sharing",
+      "dataSecurity": "Data Security",
+      "yourRights": "Your Rights",
+      "cookiesAndTracking": "Cookies and Tracking",
+      "dataRetention": "Data Retention",
+      "childrensPrivacy": "Children's Privacy",
+      "internationalTransfers": "International Transfers",
+      "privacyUpdates": "Privacy Updates",
+
+      // Cookie Policy
+      "cookieTitle": "Cookie Policy",
+      "cookieSubtitle": "How we use cookies and similar technologies on our website.",
+      "whatAreCookies": "What are Cookies?",
+      "howWeUseCookies": "How We Use Cookies",
+      "typesOfCookies": "Types of Cookies",
+      "managingCookies": "Managing Cookies",
+      "thirdPartyCookies": "Third-Party Cookies",
+      "cookieConsent": "Cookie Consent",
+      "essentialCookies": "Essential Cookies",
+      "analyticalCookies": "Analytical Cookies",
+      "functionalCookies": "Functional Cookies",
+      "targetingCookies": "Targeting Cookies",
+
+      // Detailed Legal Content - Terms of Service
+      "termsAcceptance1": "By accessing and using EduPress, you accept and agree to be bound by these Terms of Service",
+      "termsAcceptance2": "If you do not agree to these terms, please do not use our platform",
+      "termsAcceptance3": "These terms apply to all users, including students, instructors, and visitors",
+      "termsAcceptance4": "You must be at least 13 years old to use our services",
+      "termsAcceptance5": "Parents or guardians must agree to these terms for users under 18",
+      
+      "userAccounts1": "You are responsible for maintaining the confidentiality of your account credentials",
+      "userAccounts2": "You must provide accurate and complete information when creating an account",
+      "userAccounts3": "You are responsible for all activities that occur under your account",
+      "userAccounts4": "You must notify us immediately of any unauthorized use of your account",
+      "userAccounts5": "We reserve the right to suspend or terminate accounts that violate our terms",
+      
+      "acceptableUse1": "Use our platform only for lawful purposes and in accordance with these terms",
+      "acceptableUse2": "Do not upload, share, or distribute harmful, offensive, or illegal content",
+      "acceptableUse3": "Respect intellectual property rights of instructors and other users",
+      "acceptableUse4": "Do not attempt to hack, disrupt, or interfere with our platform",
+      "acceptableUse5": "Do not create multiple accounts to circumvent restrictions or abuse features",
+      
+      "paymentsRefunds1": "Course prices are listed in USD and subject to change without notice",
+      "paymentsRefunds2": "All payments are processed securely through our payment partners",
+      "paymentsRefunds3": "We offer a 30-day money-back guarantee on most courses",
+      "paymentsRefunds4": "Refund requests must be made within the specified refund period",
+      "paymentsRefunds5": "Subscription services may have different refund policies as specified",
+      
+      "intellectualProperty1": "All course content is protected by copyright and owned by instructors or EduPress",
+      "intellectualProperty2": "You may access course content for personal, non-commercial learning purposes only",
+      "intellectualProperty3": "You may not share, redistribute, or resell course content without permission",
+      "intellectualProperty4": "User-generated content (reviews, comments) remains your property but you grant us usage rights",
+      "intellectualProperty5": "We respect intellectual property rights and will respond to valid takedown notices",
+      
+      "disclaimers1": "Our platform is provided \"as is\" without warranties of any kind",
+      "disclaimers2": "We do not guarantee that courses will meet your specific needs or expectations",
+      "disclaimers3": "We are not liable for any indirect, incidental, or consequential damages",
+      "disclaimers4": "Our total liability is limited to the amount you paid for the specific course",
+      "disclaimers5": "Some jurisdictions may not allow certain limitations, so these may not apply to you",
+      
+      "termination1": "You may terminate your account at any time through your account settings",
+      "termination2": "We may suspend or terminate your account for violations of these terms",
+      "termination3": "Upon termination, you lose access to all course content and platform features",
+      "termination4": "Certain provisions of these terms survive termination (payment obligations, etc.)",
+      "termination5": "We will provide reasonable notice before terminating accounts except in cases of serious violations",
+      
+      "governingLawText1": "These Terms of Service are governed by and construed in accordance with the laws of the State of California, United States, without regard to its conflict of law provisions.",
+      "governingLawText2": "Any disputes arising from these terms will be resolved through binding arbitration in accordance with the rules of the American Arbitration Association.",
+      
+      "termsContactText": "If you have questions about these Terms of Service, please contact us:",
+      
+      "changesTermsText": "We reserve the right to modify these terms at any time. When we make changes:",
+      "changesTerms1": "We will post the updated terms on this page",
+      "changesTerms2": "We will update the \"Last updated\" date",
+      "changesTerms3": "We will notify users of significant changes via email",
+      "changesTerms4": "Continued use of our platform constitutes acceptance of the new terms",
+
+      // Privacy Policy Content
+      "privacyNoticeText": "Your privacy is important to us. This Privacy Policy explains how EduPress collects, uses, and protects your personal information when you use our platform. By using our services, you agree to the collection and use of information in accordance with this policy.",
+      
+      "privacyCollection1": "Personal information you provide when creating an account (name, email, profile photo)",
+      "privacyCollection2": "Course activity data including progress, quiz results, and assignment submissions",
+      "privacyCollection3": "Payment information processed securely through third-party payment processors",
+      "privacyCollection4": "Technical information such as IP address, browser type, and device information",
+      "privacyCollection5": "Communication records when you contact our support team",
+      
+      "privacyUse1": "Provide and maintain our educational platform and services",
+      "privacyUse2": "Process course enrollments and track your learning progress",
+      "privacyUse3": "Send important updates about courses, platform changes, and account activity",
+      "privacyUse4": "Improve our platform through analytics and user feedback",
+      "privacyUse5": "Provide customer support and respond to your inquiries",
+      
+      "privacySharing1": "We do not sell, trade, or rent your personal information to third parties",
+      "privacySharing2": "Instructors can see basic profile information and course progress of enrolled students",
+      "privacySharing3": "Service providers who help us operate our platform (hosting, payment processing, analytics)",
+      "privacySharing4": "Legal authorities when required by law or to protect our rights and safety",
+      "privacySharing5": "In case of business transfer, with appropriate notice and protection measures",
+      
+      "privacySecurity1": "Industry-standard encryption for data transmission and storage",
+      "privacySecurity2": "Regular security audits and vulnerability assessments",
+      "privacySecurity3": "Secure payment processing through PCI-compliant payment providers",
+      "privacySecurity4": "Access controls and authentication measures for our systems",
+      "privacySecurity5": "Employee training on data protection and privacy best practices",
+      
+      "privacyRights1": "Access and review your personal information stored in your account",
+      "privacyRights2": "Update or correct inaccurate personal information",
+      "privacyRights3": "Request deletion of your account and associated personal data",
+      "privacyRights4": "Export your data in a commonly used format",
+      "privacyRights5": "Opt-out of non-essential communications and marketing emails",
+      
+      "privacyCookies1": "Essential cookies for platform functionality and user authentication",
+      "privacyCookies2": "Analytics cookies to understand how users interact with our platform",
+      "privacyCookies3": "Preference cookies to remember your language and display settings",
+      "privacyCookies4": "You can manage cookie preferences through your browser settings",
+      "privacyCookies5": "Some features may not work properly if cookies are disabled",
+      
+      "privacyRetention1": "Account information retained while your account is active",
+      "privacyRetention2": "Course progress and completion data stored for certification purposes",
+      "privacyRetention3": "Payment records kept for accounting and tax compliance (7 years)",
+      "privacyRetention4": "Support communications retained for 3 years for quality assurance",
+      "privacyRetention5": "Deleted account data permanently removed within 30 days (except legal requirements)",
+      
+      "privacyChildren1": "Our platform is not intended for children under 13 years of age",
+      "privacyChildren2": "We do not knowingly collect personal information from children under 13",
+      "privacyChildren3": "Parents/guardians must supervise and consent to platform use by minors",
+      "privacyChildren4": "If we discover we have collected information from a child under 13, we will delete it",
+      "privacyChildren5": "Contact us immediately if you believe a child under 13 has provided personal information",
+      
+      "privacyTransfers1": "Your data may be transferred to and processed in countries outside your residence",
+      "privacyTransfers2": "We ensure appropriate safeguards are in place for international data transfers",
+      "privacyTransfers3": "Data processing agreements with service providers include privacy protections",
+      "privacyTransfers4": "EU users: transfers comply with GDPR requirements and adequacy decisions",
+      "privacyTransfers5": "We will notify you of any significant changes to data transfer practices",
+      
+      "privacyContactText": "If you have any questions about this Privacy Policy or our data practices, please contact us:",
+      
+      "privacyUpdatesText": "We may update this Privacy Policy from time to time to reflect changes in our practices or for legal and regulatory reasons. When we make changes:",
+      "privacyUpdates1": "We will post the updated policy on this page",
+      "privacyUpdates2": "We will update the \"Last updated\" date",
+      "privacyUpdates3": "For significant changes, we will notify you via email or platform notification",
+      "privacyUpdates4": "Your continued use constitutes acceptance of the updated policy",
+
+      // Cookie Policy Content
+      "essentialCookiesDesc": "Required for basic website functionality",
+      "analyticalCookiesDesc": "Help us understand how visitors use our website",
+      "functionalCookiesDesc": "Remember your preferences and enhance your experience",
+      "targetingCookiesDesc": "Used for personalized content and advertising",
+      
+      "essentialCookie1": "Authentication and login sessions",
+      "essentialCookie2": "Security and anti-fraud protection",
+      "essentialCookie3": "Language and region preferences",
+      "essentialCookie4": "Shopping cart and course selections",
+      "essentialCookie5": "Basic website functionality",
+      
+      "analyticalCookie1": "Google Analytics for website traffic analysis",
+      "analyticalCookie2": "User behavior tracking on course pages",
+      "analyticalCookie3": "Performance monitoring and optimization",
+      "analyticalCookie4": "A/B testing for feature improvements",
+      "analyticalCookie5": "Error tracking and bug reporting",
+      
+      "functionalCookie1": "Language and locale settings",
+      "functionalCookie2": "Theme preferences (dark/light mode)",
+      "functionalCookie3": "Video player settings and quality",
+      "functionalCookie4": "Course progress and bookmarks",
+      "functionalCookie5": "Notification preferences",
+      
+      "targetingCookie1": "Course recommendations based on interests",
+      "targetingCookie2": "Personalized content and offers",
+      "targetingCookie3": "Social media integration and sharing",
+      "targetingCookie4": "Third-party advertising networks",
+      "targetingCookie5": "Cross-platform user tracking",
+      
+      "cookiesExplanation1": "Cookies are small text files that are stored on your device when you visit our website. They help us provide you with a better browsing experience by remembering your preferences, keeping you logged in, and understanding how you use our platform.",
+      "cookiesExplanation2": "We use both first-party cookies (set by EduPress) and third-party cookies (set by our partners) to enhance your learning experience and improve our services.",
+      
+      // Additional hero section
+      "startLearningToday": "Start learning new skills today",
+      "professionalSkillsDesc": "Register now to develop your professional career",
+      "freeRegistration": "Free Registration",
+      
+      // Pricing page
+      "chooseLearningPlan": "Choose Your Learning Plan",
+      "startLearningFree": "Start learning for free, then unlock more features as you grow",
+      "monthly": "Monthly",
+      "annual": "Annual",
+      "save20": "Save 20%",
+      
+      // Plan names and descriptions
+      "freePlan": "Free",
+      "proPlan": "Pro",
+      "premiumPlan": "Premium",
+      "perfectForGettingStarted": "Perfect for getting started",
+      "bestForSeriousLearners": "Best for serious learners",
+      "forProfessionalsAndTeams": "For professionals and teams",
+      
+      // Features
+      "freeCoursesAccess": "3 free courses",
+      "basicCommunityAccess": "Basic community access",
+      "courseCompletionCertificates": "Course completion certificates",
+      "mobileAppAccess": "Mobile app access",
+      "downloadOfflineViewing": "Download for offline viewing",
+      "prioritySupport": "Priority support",
+      "advancedAnalytics": "Advanced analytics",
+      "customLearningPaths": "Custom learning paths",
+      "unlimitedCourseAccess": "Unlimited course access",
+      "fullCommunityAccess": "Full community access",
+      "verifiedCertificates": "Verified certificates",
+      "priorityEmailSupport": "Priority email support",
+      "basicAnalytics": "Basic analytics",
+      "everythingInPro": "Everything in Pro",
+      "oneOnOneMentoring": "1-on-1 mentoring sessions",
+      "advancedCertificates": "Advanced certificates",
+      "teamCollaboration": "Team collaboration tools",
+      "prioritySupportPhone": "Priority support + phone",
+      "advancedAnalyticsInsights": "Advanced analytics & insights",
+      "apiAccess": "API access",
+      
+      // CTA buttons
+      "getStartedFree": "Get Started Free",
+      "startProTrial": "Start Pro Trial",
+      "goPremium": "Go Premium",
+      
+      // Enterprise section
+      "needSomethingCustom": "Need Something Custom?",
+      "enterpriseSolutions": "We offer enterprise solutions for larger teams and organizations",
+      "enterprisePlan": "Enterprise Plan",
+      "customUserLimits": "Custom user limits",
+      "dedicatedAccountManager": "Dedicated account manager",
+      "ssoAdvancedSecurity": "SSO and advanced security",
+      "customIntegrations": "Custom integrations",
+      "prioritySupport24_7": "24/7 priority support",
+      "customPricing": "Custom Pricing",
+      "tailoredToYourNeeds": "Tailored to your organization's needs",
+      "contactSales": "Contact Sales",
+      
+      // FAQ section
+      "frequentlyAskedQuestions": "Frequently Asked Questions",
+      "everythingAboutPricing": "Everything you need to know about our pricing",
+      "canSwitchPlansAnytime": "Can I switch plans anytime?",
+      "canSwitchPlansAnswer": "Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle.",
+      "isThereFreeTrial": "Is there a free trial?",
+      "freeTrialAnswer": "Yes! All paid plans come with a 14-day free trial. No credit card required to start.",
+      "whatPaymentMethods": "What payment methods do you accept?",
+      "paymentMethodsAnswer": "We accept all major credit cards, PayPal, and bank transfers for annual plans.",
+      "canGetRefund": "Can I get a refund?",
+      "refundAnswer": "Yes, we offer a 30-day money-back guarantee on all paid plans.",
+      "studentDiscounts": "Do you offer student discounts?",
+      "studentDiscountsAnswer": "Yes! Students get 50% off all paid plans with a valid student email address.",
+      "teamEnterprisePlan": "Is there a team or enterprise plan?",
+      "teamEnterprisePlanAnswer": "Yes, we offer custom enterprise plans for teams of 10 or more. Contact our sales team for details.",
+      
+      // Final CTA
+      "readyToStartLearning": "Ready to Start Learning?",
+      "joinThousandsStudents": "Join thousands of students who are already transforming their careers",
+      "startYourFreeTrial": "Start Your Free Trial",
+      
+      // Blog page
+      "learningInsightsResources": "Learning Insights & Resources",
+      "stayUpdatedWithTrends": "Stay updated with the latest trends, tips, and insights from the world of online education and technology",
+      "searchArticles": "Search articles, topics, or authors...",
+      "featuredArticle": "Featured Article",
+      "allPosts": "All Posts",
+      "blogCategories": "Categories",
+      "popularTags": "Popular Tags",
+      "readMore": "Read More",
+      "byAuthor": "By",
+      "minRead": "min read",
+      "relatedArticles": "Related Articles",
+      "newsletterSubscribe": "Subscribe to Newsletter",
+      "getLatestArticles": "Get the latest articles delivered to your inbox",
+      
+      // About page
+      "empoweringLearners": "Empowering Learners",
+      "aroundTheWorld": "Around the World",
+      "aboutDescription": "At EduPress, we believe that quality education should be accessible to everyone. Our mission is to connect learners with world-class instructors and cutting-edge content.",
+      "watchOurStory": "Watch Our Story",
+      "yearsExperience": "Years Experience",
+      "studentsTaught": "Students Taught",
+      "coursesAvailable": "Courses Available",
+      "expertInstructors": "Expert Instructors",
+      "ourCoreValues": "Our Core Values",
+      "coreValuesDescription": "These principles guide everything we do and shape our commitment to excellence",
+      "ourMission": "Our Mission",
+      "ourMissionDescription": "To democratize quality education and make learning accessible to everyone, everywhere.",
+      "excellence": "Excellence",
+      "excellenceDescription": "We strive for excellence in everything we do, from course content to student support.",
+      "studentFirst": "Student First",
+      "studentFirstDescription": "Every decision we make is centered around creating the best learning experience for our students.",
+      "communityValue": "Community",
+      "communityValueDescription": "Building a global community of learners who support and inspire each other.",
+      "meetOurTeam": "Meet Our Team",
+      "teamDescription": "Passionate educators and innovators dedicated to transforming online learning",
+      "ourStory": "Our Story",
+      "storyParagraph1": "Founded in 2020, EduPress began as a small team of educators who recognized the need for high-quality, accessible online education. We saw students struggling to find courses that were both comprehensive and engaging.",
+      "storyParagraph2": "Today, we've grown into a global platform serving over 50,000 students worldwide. Our courses are designed by industry experts and delivered through cutting-edge technology that makes learning interactive and effective.",
+      "storyParagraph3": "But our mission remains the same: to break down barriers to education and help every learner achieve their goals, regardless of their background or location.",
+      "readyToStartJourney": "Ready to Start Your Learning Journey?",
+      "transformCareersDescription": "Join thousands of students who are already transforming their careers with our courses.",
+      "browseCourses": "Browse Courses",
+      
+      // Instructors page
+      "learnFromExperts": "Learn from Industry Experts",
+      "expertsDescription": "Our instructors are working professionals from top companies like Google, Apple, and Meta. Learn cutting-edge skills from the people who are building the future.",
+      "averageRating": "Average Rating",
+      "meetOurInstructors": "Meet Our Instructors",
+      "worldClassProfessionals": "World-class professionals sharing their expertise and real-world experience",
+      "viewProfile": "View Profile",
+      "shareYourExpertise": "Share Your Expertise",
+      "instructorCTADescription": "Join our community of expert instructors and help shape the next generation of professionals. Earn money while making a difference.",
+      "becomeInstructor": "Become an Instructor",
+      
+      // Team member roles and bios
+      "founderCEO": "Founder & CEO",
+      "cto": "CTO",
+      "headOfContent": "Head of Content",
+      "headOfMarketing": "Head of Marketing",
+      "seniorSoftwareEngineer": "Senior Software Engineer",
+      "uxDesignDirector": "UX Design Director",
+      "digitalMarketingExpert": "Digital Marketing Expert",
+      "dataScienceLead": "Data Science Lead",
+      "businessStrategyConsultant": "Business Strategy Consultant",
+      "cloudSolutionsArchitect": "Cloud Solutions Architect",
+      
+      // Contact page
+      "getInTouch": "Get in Touch",
+      "contactPageDescription": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+      "sendMessage": "Send us a Message",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "emailAddress": "Email Address",
+      "subject": "Subject",
+      "message": "Message",
+      "sendMessageButton": "Send Message",
+      "emailUs": "Email Us",
+      "emailDescription": "Send us an email anytime",
+      "callUs": "Call Us",
+      "callDescription": "Mon-Fri from 8am to 6pm EST",
+      "visitUs": "Visit Us",
+      "visitDescription": "Come say hello at our office",
+      "officeHours": "Office Hours",
+      "officeHoursContent": "Monday - Friday: 8am - 6pm EST",
+      "officeHoursDescription": "Weekend: 10am - 4pm EST",
+      "needQuickHelp": "Need Quick Help?",
+      "selfServiceDescription": "Check out our self-service options for faster assistance.",
+      "liveChat": "Live Chat",
+      "liveChatDescription": "Get instant help from our support team",
+      "startChat": "Start Chat",
+      "helpCenter": "Help Center",
+      "helpCenterDescription": "Browse our comprehensive FAQ and guides",
+      "visitHelpCenter": "Visit Help Center",
+      "communityForum": "Community Forum",
+      "communityForumDescription": "Connect with other learners and instructors",
+      "joinCommunity": "Join Community",
+      "visitOurOffice": "Visit Our Office",
+      "officeVisitDescription": "Drop by for a coffee and chat about your learning goals",
+      "mapPlaceholder": "Interactive map would be embedded here",
+      "frequentlyAskedQuestionsContact": "Frequently Asked Questions",
+      "faqDescription": "Quick answers to common questions",
+      
+      // Contact form subjects
+      "generalInquiry": "General Inquiry",
+      "courseSupport": "Course Support", 
+      "technicalIssue": "Technical Issue",
+      "partnership": "Partnership",
+      "billingQuestion": "Billing Question",
+      "other": "Other",
+      
+      // Form placeholders
+      "firstNamePlaceholder": "John",
+      "lastNamePlaceholder": "Doe",
+      "emailPlaceholder": "john@example.com",
+      "messagePlaceholder": "Tell us how we can help you...",
+      
+      // FAQ items
+      "faqQuestion1": "How do I get started with courses?",
+      "faqAnswer1": "Simply browse our course catalog, select a course that interests you, and click 'Enroll Now'. You'll have immediate access to all course materials.",
+      "faqQuestion2": "Can I get a refund if I'm not satisfied?",
+      "faqAnswer2": "Yes, we offer a 30-day money-back guarantee on all courses. If you're not completely satisfied, contact our support team for a full refund.",
+      "faqQuestion3": "Do you offer certificates upon completion?",
+      "faqAnswer3": "Absolutely! Upon successful completion of a course, you'll receive a certificate that you can share on LinkedIn and add to your professional portfolio.",
+      "faqQuestion4": "Is there a mobile app available?",
+      "faqAnswer4": "Yes, our mobile app is available on both iOS and Android. You can download course materials and learn offline whenever it's convenient for you.",
+      
+      // Dashboard translations
+      "studentDashboard": "Student Dashboard",
+      "instructorDashboard": "Instructor Dashboard",
+      "adminDashboard": "Admin Dashboard",
+      "dashboardOverview": "Overview",
+      "myCourses": "My Courses",
+      "assignments": "Assignments",
+      "quizzes": "Quizzes",
+      "dashboardCertificates": "Certificates",
+      "manageCourses": "Manage Courses",
+      "dashboardStudents": "Students",
+      "manageAssignments": "Manage Assignments",
+      "manageQuizzes": "Manage Quizzes",
+      "videos": "Videos",
+      "comments": "Comments",
+      "issueCertificates": "Issue Certificates",
+      "dashboardAnalytics": "Analytics",
+      "dashboardAllCourses": "All Courses",
+      "allUsers": "All Users",
+      "systemAnalytics": "System Analytics",
+      "payments": "Payments",
+      "dashboardSettings": "Settings",
+      "quickActions": "Quick Actions",
+      "createCourse": "Create Course",
+      "createQuiz": "Create Quiz",
+      "backToSite": "Back to Site",
+      "backToMainSite": "Back to Main Site",
+      
+      // Cart translations
+      "shoppingCart": "Shopping Cart",
+      "cartEmpty": "Your cart is empty",
+      "cartEmptyDescription": "Add some courses to get started with your learning journey",
+      "backToCourses": "Back to Courses",
+      "items": "items",
+      "inCart": "in cart",
+      "by": "by",
+      "remove": "remove",
+      "orderSummary": "Order Summary",
+      "subtotal": "Subtotal",
+      "tax": "Tax",
+      "total": "Total",
+      "proceedToCheckout": "Proceed to Checkout",
+      "30DayMoneyBack": "30-day money back guarantee",
+      
+      // Profile translations
+      "myProfile": "My Profile",
+      "backToHome": "Back to Home",
+      "editProfile": "Edit Profile",
+      "memberSince": "Member since",
+      "totalLearningTime": "Total Learning Time",
+      "aboutMe": "About Me",
+      "bio": "Bio",
+      "learningProgress": "Learning Progress",
+      "completionRate": "Completion Rate",
+      "trackProgress": "Track your learning progress and achievements",
+      "demoMode": "Demo Mode",
+      "demoModeDescription": "You're viewing mock data. Please log in as a student to see your real learning progress.",
+      "loadingDashboard": "Loading student dashboard...",
+      "enrolledCourses": "Enrolled Courses",
+      "completed": "Completed",
+      "inProgress": "In Progress",
+      "hoursLearned": "Hours Learned",
+      "avgProgress": "Avg Progress",
+      "dayStreak": "day streak",
+      "recentCourses": "Recent Courses",
+      "upcomingDeadlines": "Upcoming Deadlines",
+      "noRecentCourses": "No recent courses",
+      "noUpcomingDeadlines": "No upcoming deadlines",
+      "myEnrolledCourses": "My Enrolled Courses",
+      "trackLearningProgress": "Track your learning progress and achievements",
+      "continueLearning": "Continue Learning",
+      "certificatesAchievements": "Certificates & Achievements",
+      "noEnrolledCourses": "No Enrolled Courses",
+      "browseCourseCatalog": "Browse our course catalog to start learning",
+      "progressTrackingDetails": "Detailed progress tracking and analytics will be displayed here",
+      "earnedCertificates": "Your earned certificates and course completion badges will appear here",
+      
+      // Dashboard object for admin panel
+      "dashboard": {
+        "admin": {
+          "title": "Administrator paneli",
+          "subtitle": "To'lov boshqaruvi va statistikalar"
+        },
+        "demoMode": {
+          "title": "Demo rejimi",
+          "description": "Siz demo ma'lumotlarni ko'ryapsiz. Haqiqiy statistikalarni ko'rish uchun administrator sifatida tizimga kiring."
+        },
+        "stats": {
+          "totalUsers": "Jami foydalanuvchilar",
+          "totalCourses": "Jami kurslar",
+          "freeCourses": "Bepul kurslar",
+          "paidCourses": "Pullik kurslar",
+          "students": "Talabalar",
+          "instructors": "O'qituvchilar",
+          "totalRevenue": "Jami daromad",
+          "totalPayments": "Jami to'lovlar",
+          "successfulPayments": "Muvaffaqiyatli to'lovlar",
+          "totalTransactions": "Jami tranzaksiyalar",
+          "revenue": "Daromad",
+          "successRate": "Muvaffaqiyat foizi"
+        },
+        "tabs": {
+          "overview": "Umumiy ko'rinish",
+          "users": "Foydalanuvchilar",
+          "courses": "Kurslar",
+          "transactions": "Tranzaksiyalar",
+          "analytics": "Tahlillar",
+          "payments": "To'lovlar",
+          "settings": "Sozlamalar",
+          "reports": "Hisobotlar"
+        },
+        "payments": {
+          "stripe": {
+            "title": "Stripe to'lovlari"
+          },
+          "payme": {
+            "title": "Payme to'lovlari"
+          }
+        },
+        "comingSoon": "Tez orada..."
+      },
+      
+      // Common elements
+      "common": {
+        "loading": "Yuklanmoqda...",
+        "refresh": "Yangilash",
+        "cancel": "Bekor qilish",
+        "save": "Saqlash",
+        "edit": "Tahrirlash",
+        "delete": "O'chirish",
+        "actions": "Harakatlar",
+        "free": "Bepul",
+        "periods": {
+          "last7Days": "So'nggi 7 kun",
+          "last30Days": "So'nggi 30 kun",
+          "last90Days": "So'nggi 90 kun",
+          "allTime": "Barcha vaqt"
+        },
+        "roles": {
+          "student": "Talaba",
+          "instructor": "O'qituvchi",
+          "admin": "Administrator"
+        },
+        "status": {
+          "active": "Faol",
+          "inactive": "Nofaol",
+          "suspended": "To'xtatilgan"
+        },
+        "courseStatus": {
+          "published": "Nashr qilingan",
+          "draft": "Qoralama",
+          "archived": "Arxivlangan"
+        },
+        "courseLevel": {
+          "beginner": "Boshlang'ich",
+          "intermediate": "O'rta",
+          "advanced": "Yuqori"
+        }
+      },
+    }
+  },
+  ru: {
+    translation: {
+      // Navigation
+      "home": "Главная",
+      "courses": "Курсы",
+      "about": "О нас",
+      "contact": "Контакты",
+      "login": "Вход",
+      "signup": "Регистрация",
+      "logout": "Выход",
+      
+      // Course related
+      "allCourses": "Все Курсы",
+      "searchAndFilter": "Поиск и Фильтр",
+      "searchCourses": "Поиск курсов",
+      "searchPlaceholder": "Введите название курса...",
+      "category": "Категория",
+      "level": "Уровень",
+      "price": "Цена",
+      "allCategories": "Все категории",
+      "allLevels": "Все уровни",
+      "allPrices": "Все",
+      "free": "Бесплатно",
+      "paid": "Платно",
+      "beginner": "Начинающий",
+      "intermediate": "Средний",
+      "advanced": "Продвинутый",
+      
+      // Sorting
+      "mostPopular": "Самые популярные",
+      "newest": "Новейшие",
+      "priceLowToHigh": "Цена: По возрастанию",
+      "priceHighToLow": "Цена: По убыванию",
+      "highestRated": "Лучшие оценки",
+      
+      // Course details
+      "students": "Студенты",
+      "rating": "Рейтинг",
+      "lessons": "Уроки",
+      "hours": "часы",
+      "instructor": "Преподаватель",
+      "enrollNow": "Записаться",
+      "startLearning": "Начать обучение",
+      "viewDetails": "Подробнее",
+      "progress": "Прогресс",
+      
+      // Dashboard
+      "overview": "Обзор",
+      "userManagement": "Управление пользователями",
+      "courseManagement": "Управление курсами",
+      "addUser": "Добавить пользователя",
+      "addCourse": "Добавить курс",
+      "edit": "Редактировать",
+      "delete": "Удалить",
+      "publish": "Опубликовать",
+      "unpublish": "Снять с публикации",
+      "active": "Активный",
+      "inactive": "Неактивный",
+      "suspended": "Заблокирован",
+      
+      // Common
+      "save": "Сохранить",
+      "cancel": "Отмена",
+      "loading": "Загрузка...",
+      "noResults": "Результаты не найдены",
+      "refresh": "Обновить",
+      "previous": "Предыдущая",
+      "next": "Следующая",
+      "coursesFound": "курсов найдено",
+      "bestLearningMaterials": "Лучшие учебные материалы",
+      "popularCategories": "Популярные категории",
+      "programming": "Программирование",
+      "design": "Дизайн",
+      "marketing": "Маркетинг",
+      "business": "Бизнес",
+      "languages": "Языки",
+      
+      // Hero section
+      "heroTitle": "Шагните в будущее",
+      "heroSubtitle": "Изучайте профессиональные навыки, развивайте карьеру и достигайте успеха. Нам доверяют 50 000+ студентов.",
+      "viewCourses": "Смотреть курсы",
+      "learnMore": "Подробнее",
+      
+      // Stats
+      "totalStudents": "Всего студентов",
+      "totalCourses": "Всего курсов",
+      "totalInstructors": "Всего преподавателей",
+      "successRate": "Процент успеха",
+      
+      // Additional messages
+      "noCoursesMessage": "Попробуйте изменить критерии поиска",
+      "instructors": "Преподаватели",
+      "profile": "Профиль",
+      
+      // HomePage specific
+      "findDirection": "Найдите свое направление и развивайтесь профессионально",
+      "coursesCount": "курсов",
+      "featuredCourses": "Рекомендуемые курсы",
+      "qualityCourses": "Ознакомьтесь с нашими самыми качественными и популярными курсами",
+      "qualityEducation": "Качественное образование",
+      "qualityEducationDesc": "Получите профессиональные знания от квалифицированных преподавателей",
+      "interactiveLessons": "Интерактивные уроки",
+      "interactiveLessonsDesc": "Видеоуроки, практические задания и проекты",
+      "certificate": "Сертификат",
+      "certificateDesc": "Получите официальный сертификат по завершении курса",
+      "community": "Сообщество",
+      "communityDesc": "Присоединяйтесь к сообществу из 50 000+ активных учеников",
+      
+      // Footer specific
+      "companyDescription": "Расширение возможностей учащихся по всему миру с помощью высококачественного онлайн-образования. Присоединяйтесь к миллионам студентов и измените свою карьеру сегодня.",
+      "quickLinks": "Быстрые ссылки",
+      "pricing": "Цены",
+      "blog": "Блог",
+      "categories": "Категории",
+      "photography": "Фотография",
+      "contactInfo": "Контактная информация",
+      "subscribeNewsletter": "Подписаться на рассылку",
+      "yourEmail": "Ваш email",
+      "allRightsReserved": "Все права защищены.",
+      "privacyPolicy": "Политика конфиденциальности",
+      "termsOfService": "Условия использования",
+      "cookiePolicy": "Политика Cookie",
+
+      // Legal Pages Content
+      // Terms of Service
+      "termsTitle": "Условия Использования",
+      "termsSubtitle": "Эти условия регулируют использование EduPress и определяют права и обязанности всех пользователей.",
+      "lastUpdated": "Последнее обновление",
+      "importantNotice": "Важное Уведомление",
+      "termsNoticeText": "Пожалуйста, внимательно прочитайте эти Условия использования перед использованием EduPress. Используя нашу платформу, вы соглашаетесь соблюдать эти условия. Если вы не согласны с какой-либо частью этих условий, вы не можете использовать наши услуги.",
+      "acceptanceOfTerms": "Принятие Условий",
+      "userAccounts": "Пользовательские Аккаунты",
+      "acceptableUse": "Допустимое Использование",
+      "paymentsAndRefunds": "Платежи и Возвраты",
+      "intellectualProperty": "Интеллектуальная Собственность",
+      "disclaimersAndLimitations": "Отказы от Ответственности и Ограничения",
+      "termination": "Прекращение",
+      "governingLaw": "Применимое Право",
+      "contactInformation": "Контактная Информация",
+      "changesToTerms": "Изменения в Условиях",
+
+      // Privacy Policy
+      "privacyTitle": "Политика Конфиденциальности",
+      "privacySubtitle": "Подробная информация о том, как мы собираем, используем и защищаем вашу личную информацию.",
+      "informationCollection": "Сбор Информации",
+      "howWeUseInfo": "Как Мы Используем Информацию",
+      "informationSharing": "Обмен Информацией",
+      "dataSecurity": "Безопасность Данных",
+      "yourRights": "Ваши Права",
+      "cookiesAndTracking": "Cookies и Отслеживание",
+      "dataRetention": "Хранение Данных",
+      "childrensPrivacy": "Конфиденциальность Детей",
+      "internationalTransfers": "Международные Передачи",
+      "privacyUpdates": "Обновления Конфиденциальности",
+
+      // Cookie Policy
+      "cookieTitle": "Политика Cookie",
+      "cookieSubtitle": "Как мы используем cookie и аналогичные технологии на нашем веб-сайте.",
+      "whatAreCookies": "Что такое Cookie?",
+      "howWeUseCookies": "Как Мы Используем Cookie",
+      "typesOfCookies": "Типы Cookie",
+      "managingCookies": "Управление Cookie",
+      "thirdPartyCookies": "Cookie Третьих Лиц",
+      "cookieConsent": "Согласие на Cookie",
+      "essentialCookies": "Основные Cookie",
+      "analyticalCookies": "Аналитические Cookie",
+      "functionalCookies": "Функциональные Cookie",
+      "targetingCookies": "Рекламные Cookie",
+      
+      // Additional hero section
+      "startLearningToday": "Начните изучать новые навыки сегодня",
+      "professionalSkillsDesc": "Зарегистрируйтесь сейчас, чтобы развить свою профессиональную карьеру",
+      "freeRegistration": "Бесплатная регистрация",
+      
+      // Pricing page
+      "chooseLearningPlan": "Выберите план обучения",
+      "startLearningFree": "Начните учиться бесплатно, затем откройте больше возможностей",
+      "monthly": "Ежемесячно",
+      "annual": "Ежегодно",
+      "save20": "Сэкономьте 20%",
+      
+      // Plan names and descriptions
+      "freePlan": "Бесплатно",
+      "proPlan": "Про",
+      "premiumPlan": "Премиум",
+      "perfectForGettingStarted": "Идеально для начала",
+      "bestForSeriousLearners": "Лучше всего для серьезных учеников",
+      "forProfessionalsAndTeams": "Для профессионалов и команд",
+      
+      // Features
+      "freeCoursesAccess": "3 бесплатных курса",
+      "basicCommunityAccess": "Базовый доступ к сообществу",
+      "courseCompletionCertificates": "Сертификаты о завершении курса",
+      "mobileAppAccess": "Доступ к мобильному приложению",
+      "downloadOfflineViewing": "Загрузка для офлайн просмотра",
+      "prioritySupport": "Приоритетная поддержка",
+      "advancedAnalytics": "Расширенная аналитика",
+      "customLearningPaths": "Индивидуальные пути обучения",
+      "unlimitedCourseAccess": "Неограниченный доступ к курсам",
+      "fullCommunityAccess": "Полный доступ к сообществу",
+      "verifiedCertificates": "Проверенные сертификаты",
+      "priorityEmailSupport": "Приоритетная поддержка по email",
+      "basicAnalytics": "Базовая аналитика",
+      "everythingInPro": "Все из плана Про",
+      "oneOnOneMentoring": "Индивидуальные сессии наставничества",
+      "advancedCertificates": "Расширенные сертификаты",
+      "teamCollaboration": "Инструменты командной работы",
+      "prioritySupportPhone": "Приоритетная поддержка + телефон",
+      "advancedAnalyticsInsights": "Расширенная аналитика и инсайты",
+      "apiAccess": "Доступ к API",
+      
+      // CTA buttons
+      "getStartedFree": "Начать бесплатно",
+      "startProTrial": "Начать пробный период Про",
+      "goPremium": "Перейти на Премиум",
+      
+      // Enterprise section
+      "needSomethingCustom": "Нужно что-то индивидуальное?",
+      "enterpriseSolutions": "Мы предлагаем корпоративные решения для больших команд и организаций",
+      "enterprisePlan": "Корпоративный план",
+      "customUserLimits": "Индивидуальные лимиты пользователей",
+      "dedicatedAccountManager": "Выделенный менеджер аккаунта",
+      "ssoAdvancedSecurity": "SSO и расширенная безопасность",
+      "customIntegrations": "Индивидуальные интеграции",
+      "prioritySupport24_7": "Приоритетная поддержка 24/7",
+      "customPricing": "Индивидуальная цена",
+      "tailoredToYourNeeds": "Адаптировано под потребности вашей организации",
+      "contactSales": "Связаться с отделом продаж",
+      
+      // FAQ section
+      "frequentlyAskedQuestions": "Часто задаваемые вопросы",
+      "everythingAboutPricing": "Все, что нужно знать о ценах",
+      "canSwitchPlansAnytime": "Могу ли я изменить план в любое время?",
+      "canSwitchPlansAnswer": "Да, вы можете обновить или понизить свой план в любое время. Изменения будут отражены в следующем платежном цикле.",
+      "isThereFreeTrial": "Есть ли бесплатный пробный период?",
+      "freeTrialAnswer": "Да! Все платные планы поставляются с 14-дневным бесплатным пробным периодом. Кредитная карта не требуется для начала.",
+      "whatPaymentMethods": "Какие способы оплаты вы принимаете?",
+      "paymentMethodsAnswer": "Мы принимаем все основные кредитные карты, PayPal и банковские переводы для годовых планов.",
+      "canGetRefund": "Могу ли я получить возврат средств?",
+      "refundAnswer": "Да, мы предлагаем 30-дневную гарантию возврата денег на все платные планы.",
+      "studentDiscounts": "Предлагаете ли вы скидки для студентов?",
+      "studentDiscountsAnswer": "Да! Студенты получают скидку 50% на все платные планы с действительным студенческим email-адресом.",
+      "teamEnterprisePlan": "Есть ли командный или корпоративный план?",
+      "teamEnterprisePlanAnswer": "Да, мы предлагаем индивидуальные корпоративные планы для команд от 10 человек. Свяжитесь с нашей командой продаж для получения подробностей.",
+      
+      // Final CTA
+      "readyToStartLearning": "Готовы начать обучение?",
+      "joinThousandsStudents": "Присоединяйтесь к тысячам студентов, которые уже меняют свою карьеру",
+      "startYourFreeTrial": "Начать бесплатный пробный период",
+      
+      // Blog page
+      "learningInsightsResources": "Обучающие материалы и ресурсы",
+      "stayUpdatedWithTrends": "Будьте в курсе последних тенденций, советов и идей из мира онлайн-образования и технологий",
+      "searchArticles": "Поиск статей, тем или авторов...",
+      "featuredArticle": "Рекомендуемая статья",
+      "allPosts": "Все публикации",
+      "blogCategories": "Категории",
+      "popularTags": "Популярные теги",
+      "readMore": "Читать далее",
+      "byAuthor": "Автор:",
+      "minRead": "мин чтения",
+      "relatedArticles": "Похожие статьи",
+      "newsletterSubscribe": "Подписаться на рассылку",
+      "getLatestArticles": "Получайте последние статьи на свою почту",
+      
+      // About page
+      "empoweringLearners": "Расширение возможностей учащихся",
+      "aroundTheWorld": "По всему миру",
+      "aboutDescription": "В EduPress мы верим, что качественное образование должно быть доступно каждому. Наша миссия - связать учащихся с преподавателями мирового класса и передовым контентом.",
+      "watchOurStory": "Смотреть нашу историю",
+      "yearsExperience": "Лет опыта",
+      "studentsTaught": "Обученных студентов",
+      "coursesAvailable": "Доступных курсов",
+      "expertInstructors": "Экспертных преподавателей",
+      "ourCoreValues": "Наши основные ценности",
+      "coreValuesDescription": "Эти принципы направляют все, что мы делаем, и формируют наше стремление к совершенству",
+      "ourMission": "Наша миссия",
+      "ourMissionDescription": "Демократизировать качественное образование и сделать обучение доступным для всех, везде.",
+      "excellence": "Совершенство",
+      "excellenceDescription": "Мы стремимся к совершенству во всем, что мы делаем, от содержания курсов до поддержки студентов.",
+      "studentFirst": "Студент прежде всего",
+      "studentFirstDescription": "Каждое принимаемое нами решение направлено на создание наилучшего опыта обучения для наших студентов.",
+      "communityValue": "Сообщество",
+      "communityValueDescription": "Построение глобального сообщества учащихся, которые поддерживают и вдохновляют друг друга.",
+      "meetOurTeam": "Познакомьтесь с нашей командой",
+      "teamDescription": "Увлеченные педагоги и новаторы, посвятившие себя преобразованию онлайн-обучения",
+      "ourStory": "Наша история",
+      "storyParagraph1": "Основанная в 2020 году, EduPress начиналась как небольшая команда педагогов, которые осознали необходимость качественного, доступного онлайн-образования. Мы видели, как студенты борются за поиск курсов, которые были бы одновременно всеобъемлющими и увлекательными.",
+      "storyParagraph2": "Сегодня мы выросли в глобальную платформу, обслуживающую более 50,000 студентов по всему миру. Наши курсы разработаны экспертами отрасли и предоставляются с помощью передовых технологий, которые делают обучение интерактивным и эффективным.",
+      "storyParagraph3": "Но наша миссия остается прежней: разрушить барьеры в образовании и помочь каждому учащемуся достичь своих целей, независимо от происхождения или местоположения.",
+      "readyToStartJourney": "Готовы начать свое обучающее путешествие?",
+      "transformCareersDescription": "Присоединяйтесь к тысячам студентов, которые уже меняют свою карьеру с нашими курсами.",
+      "browseCourses": "Просмотреть курсы",
+      
+      // Instructors page
+      "learnFromExperts": "Учитесь у экспертов отрасли",
+      "expertsDescription": "Наши преподаватели - работающие профессионалы из ведущих компаний, таких как Google, Apple и Meta. Изучайте передовые навыки от людей, которые строят будущее.",
+      "averageRating": "Средний рейтинг",
+      "meetOurInstructors": "Познакомьтесь с нашими преподавателями",
+      "worldClassProfessionals": "Профессионалы мирового класса делятся своими знаниями и реальным опытом",
+      "viewProfile": "Посмотреть профиль",
+      "shareYourExpertise": "Поделитесь своими знаниями",
+      "instructorCTADescription": "Присоединяйтесь к нашему сообществу экспертных преподавателей и помогите формировать следующее поколение профессионалов. Зарабатывайте деньги, создавая различия.",
+      "becomeInstructor": "Стать преподавателем",
+      
+      // Team member roles and bios
+      "founderCEO": "Основатель и CEO",
+      "cto": "CTO",
+      "headOfContent": "Руководитель контента",
+      "headOfMarketing": "Руководитель маркетинга",
+      "seniorSoftwareEngineer": "Старший разработчик программного обеспечения",
+      "uxDesignDirector": "Директор UX дизайна",
+      "digitalMarketingExpert": "Эксперт цифрового маркетинга",
+      "dataScienceLead": "Руководитель науки о данных",
+      "businessStrategyConsultant": "Консультант по бизнес-стратегии",
+      "cloudSolutionsArchitect": "Архитектор облачных решений",
+      
+      // Contact page
+      "getInTouch": "Свяжитесь с нами",
+      "contactPageDescription": "Есть вопросы? Мы будем рады услышать от вас. Отправьте нам сообщение, и мы ответим как можно скорее.",
+      "sendMessage": "Отправить нам сообщение",
+      "firstName": "Имя",
+      "lastName": "Фамилия",
+      "emailAddress": "Email адрес",
+      "subject": "Тема",
+      "message": "Сообщение",
+      "sendMessageButton": "Отправить сообщение",
+      "emailUs": "Напишите нам",
+      "emailDescription": "Отправьте нам email в любое время",
+      "callUs": "Позвоните нам",
+      "callDescription": "Пн-Пт с 8:00 до 18:00 EST",
+      "visitUs": "Посетите нас",
+      "visitDescription": "Приходите поздороваться в наш офис",
+      "officeHours": "Рабочие часы",
+      "officeHoursContent": "Понедельник - Пятница: 8:00 - 18:00 EST",
+      "officeHoursDescription": "Выходные: 10:00 - 16:00 EST",
+      "needQuickHelp": "Нужна быстрая помощь?",
+      "selfServiceDescription": "Ознакомьтесь с нашими вариантами самообслуживания для более быстрой помощи.",
+      "liveChat": "Живой чат",
+      "liveChatDescription": "Получите мгновенную помощь от нашей команды поддержки",
+      "startChat": "Начать чат",
+      "helpCenter": "Центр помощи",
+      "helpCenterDescription": "Просмотрите наши всеобъемлющие FAQ и руководства",
+      "visitHelpCenter": "Посетить центр помощи",
+      "communityForum": "Форум сообщества",
+      "communityForumDescription": "Свяжитесь с другими учащимися и преподавателями",
+      "joinCommunity": "Присоединиться к сообществу",
+      "visitOurOffice": "Посетите наш офис",
+      "officeVisitDescription": "Заходите на кофе и поговорим о ваших целях обучения",
+      "mapPlaceholder": "Здесь будет встроена интерактивная карта",
+      "frequentlyAskedQuestionsContact": "Часто задаваемые вопросы",
+      "faqDescription": "Быстрые ответы на распространенные вопросы",
+      
+      // Contact form subjects
+      "generalInquiry": "Общий запрос",
+      "courseSupport": "Поддержка курса",
+      "technicalIssue": "Техническая проблема",
+      "partnership": "Партнерство",
+      "billingQuestion": "Вопрос по оплате",
+      "other": "Другое",
+      
+      // Form placeholders
+      "firstNamePlaceholder": "Иван",
+      "lastNamePlaceholder": "Иванов",
+      "emailPlaceholder": "ivan@example.com",
+      "messagePlaceholder": "Расскажите, как мы можем вам помочь...",
+      
+      // FAQ items
+      "faqQuestion1": "Как начать изучение курсов?",
+      "faqAnswer1": "Просто просмотрите наш каталог курсов, выберите курс, который вас интересует, и нажмите 'Записаться'. У вас будет немедленный доступ ко всем материалам курса.",
+      "faqQuestion2": "Могу ли я получить возврат средств, если не удовлетворен?",
+      "faqAnswer2": "Да, мы предлагаем 30-дневную гарантию возврата денег на все курсы. Если вы не полностью удовлетворены, свяжитесь с нашей командой поддержки для полного возврата.",
+      "faqQuestion3": "Выдаете ли вы сертификаты по завершении?",
+      "faqAnswer3": "Конечно! После успешного завершения курса вы получите сертификат, которым можете поделиться в LinkedIn и добавить в свое профессиональное портфолио.",
+      "faqQuestion4": "Есть ли мобильное приложение?",
+      "faqAnswer4": "Да, наше мобильное приложение доступно как для iOS, так и для Android. Вы можете загружать материалы курса и учиться офлайн, когда вам удобно.",
+      
+      // Dashboard translations
+      "studentDashboard": "Панель студента",
+      "instructorDashboard": "Панель преподавателя",
+      "adminDashboard": "Панель администратора",
+      "dashboardOverview": "Обзор",
+      "backToSite": "Вернуться на сайт",
+      "backToMainSite": "Вернуться на главный сайт",
+      
+      // Cart translations
+      "shoppingCart": "Корзина покупок",
+      "cartEmpty": "Корзина пуста",
+      "cartEmptyDescription": "Добавьте курсы, чтобы начать свое обучение",
+      "backToCourses": "Вернуться к курсам",
+      "items": "элементов",
+      "inCart": "в корзине",
+      "by": "от",
+      "remove": "удалить",
+      "orderSummary": "Итоги заказа",
+      "subtotal": "Промежуточный итог",
+      "tax": "Налог",
+      "total": "Итого",
+      "proceedToCheckout": "Перейти к оплате",
+      "30DayMoneyBack": "30-дневная гарантия возврата денег",
+      
+      // Profile translations
+      "myProfile": "Мой профиль",
+      "backToHome": "Вернуться на главную",
+      "editProfile": "Редактировать профиль",
+      "memberSince": "Участник с",
+      "totalLearningTime": "Общее время обучения",
+      "aboutMe": "Обо мне",
+      "bio": "Биография",
+      "learningProgress": "Прогресс обучения",
+      "completionRate": "Процент завершения",
+      
+      // Dashboard object for admin panel
+      "dashboard": {
+        "admin": {
+          "title": "Панель администратора",
+          "subtitle": "Управление платежами и статистика"
+        },
+        "demoMode": {
+          "title": "Демо режим",
+          "description": "Вы просматриваете демо-данные. Войдите как администратор, чтобы увидеть реальную статистику."
+        },
+        "stats": {
+          "totalUsers": "Всего пользователей",
+          "totalCourses": "Всего курсов",
+          "freeCourses": "Бесплатные курсы",
+          "paidCourses": "Платные курсы",
+          "students": "Студенты",
+          "instructors": "Преподаватели",
+          "totalRevenue": "Общий доход",
+          "totalPayments": "Всего платежей",
+          "successfulPayments": "Успешные платежи",
+          "totalTransactions": "Всего транзакций",
+          "revenue": "Доход",
+          "successRate": "Процент успеха"
+        },
+        "tabs": {
+          "overview": "Обзор",
+          "users": "Пользователи",
+          "courses": "Курсы",
+          "transactions": "Транзакции",
+          "analytics": "Аналитика",
+          "payments": "Платежи",
+          "settings": "Настройки",
+          "reports": "Отчеты"
+        },
+        "payments": {
+          "stripe": {
+            "title": "Платежи Stripe"
+          },
+          "payme": {
+            "title": "Платежи Payme"
+          }
+        },
+        "comingSoon": "Скоро..."
+      },
+      
+      // Common elements
+      "common": {
+        "loading": "Загрузка...",
+        "refresh": "Обновить",
+        "cancel": "Отмена",
+        "save": "Сохранить",
+        "edit": "Редактировать",
+        "delete": "Удалить",
+        "actions": "Действия",
+        "free": "Бесплатно",
+        "periods": {
+          "last7Days": "Последние 7 дней",
+          "last30Days": "Последние 30 дней",
+          "last90Days": "Последние 90 дней",
+          "allTime": "Все время"
+        },
+        "roles": {
+          "student": "Студент",
+          "instructor": "Преподаватель",
+          "admin": "Администратор"
+        },
+        "status": {
+          "active": "Активен",
+          "inactive": "Неактивен",
+          "suspended": "Заблокирован"
+        },
+        "courseStatus": {
+          "published": "Опубликован",
+          "draft": "Черновик",
+          "archived": "Архивирован"
+        },
+        "courseLevel": {
+          "beginner": "Начинающий",
+          "intermediate": "Средний",
+          "advanced": "Продвинутый"
+        }
+      },
+    }
+  },
+};
+
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    resources,
+    fallbackLng: 'uz',
+    lng: 'uz', // Default language
+    interpolation: {
+      escapeValue: false, // React already safes from xss
+    }
+  });
+
+export default i18n;

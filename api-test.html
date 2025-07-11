@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .result { background: #f5f5f5; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .error { background: #ffe6e6; color: #d00; }
+        .success { background: #e6ffe6; color: #080; }
+        button { padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>API Endpoints Test</h1>
+    
+    <div>
+        <h2>Test Course API Endpoints</h2>
+        <button onclick="testPublishedCourses()">Test Published Courses</button>
+        <button onclick="testPopularCourses()">Test Popular Courses</button>
+        <button onclick="testFeaturedCourses()">Test Featured Courses</button>
+        <button onclick="testInstructorCourses()">Test Instructor Courses (Mock)</button>
+        <div id="course-results"></div>
+    </div>
+
+    <div>
+        <h2>Test Dashboard API Endpoints</h2>
+        <button onclick="testAdminDashboard()">Test Admin Dashboard (Mock)</button>
+        <button onclick="testInstructorDashboard()">Test Instructor Dashboard (Mock)</button>
+        <button onclick="testStudentDashboard()">Test Student Dashboard (Mock)</button>
+        <div id="dashboard-results"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8081/api';
+        const FRONTEND_BASE = 'http://localhost:5173';
+
+        async function apiRequest(url, method = 'GET', data = null) {
+            try {
+                const response = await axios({
+                    method,
+                    url: `${API_BASE}${url}`,
+                    data,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                return { success: true, data: response.data, status: response.status };
+            } catch (error) {
+                return { 
+                    success: false, 
+                    error: error.response ? error.response.data : error.message,
+                    status: error.response ? error.response.status : 'Network Error'
+                };
+            }
+        }
+
+        function displayResult(containerId, title, result) {
+            const container = document.getElementById(containerId);
+            const resultDiv = document.createElement('div');
+            resultDiv.className = `result ${result.success ? 'success' : 'error'}`;
+            
+            if (result.success) {
+                resultDiv.innerHTML = `
+                    <h3>✅ ${title} (Status: ${result.status})</h3>
+                    <pre>${JSON.stringify(result.data, null, 2)}</pre>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <h3>❌ ${title} (Status: ${result.status})</h3>
+                    <pre>${JSON.stringify(result.error, null, 2)}</pre>
+                `;
+            }
+            
+            container.appendChild(resultDiv);
+        }
+
+        async function testPublishedCourses() {
+            const result = await apiRequest('/courses/published');
+            displayResult('course-results', 'Published Courses', result);
+        }
+
+        async function testPopularCourses() {
+            const result = await apiRequest('/courses/popular');
+            displayResult('course-results', 'Popular Courses', result);
+        }
+
+        async function testFeaturedCourses() {
+            const result = await apiRequest('/courses/featured');
+            displayResult('course-results', 'Featured Courses', result);
+        }
+
+        async function testInstructorCourses() {
+            const result = await apiRequest('/courses/instructor');
+            displayResult('course-results', 'Instructor Courses (should show 401 - expected)', result);
+        }
+
+        async function testAdminDashboard() {
+            const result = await apiRequest('/dashboard/admin/overview');
+            displayResult('dashboard-results', 'Admin Dashboard (should show 401 - expected)', result);
+        }
+
+        async function testInstructorDashboard() {
+            const result = await apiRequest('/dashboard/instructor/overview');
+            displayResult('dashboard-results', 'Instructor Dashboard (should show 401 - expected)', result);
+        }
+
+        async function testStudentDashboard() {
+            const result = await apiRequest('/dashboard/student/overview');
+            displayResult('dashboard-results', 'Student Dashboard (should show 401 - expected)', result);
+        }
+
+        // Auto-run tests on page load
+        window.onload = () => {
+            console.log('API Test Page Loaded - Backend:', API_BASE, 'Frontend:', FRONTEND_BASE);
+        };
+    </script>
+</body>
+</html>
