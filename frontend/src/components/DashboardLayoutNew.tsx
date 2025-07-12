@@ -163,6 +163,17 @@ function DashboardLayout({ children }: DashboardLayoutProps) {
                   Add User
                 </Link>
               )}
+              
+              {/* Beautiful Return to Main Site Button */}
+              <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <Link
+                  to="/"
+                  className="group flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105"
+                >
+                  <BarChart3 className="mr-3 h-5 w-5" />
+                  <span className="font-semibold">{t('backToMainSite')}</span>
+                </Link>
+              </div>
             </div>
           </div>
         </nav>

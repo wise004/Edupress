@@ -53,14 +53,14 @@ const ContactPage = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 to-secondary-50 py-20">
+      <section className="bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-gray-800 dark:to-gray-900 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold text-secondary-900 mb-4">
+          <h1 className="text-4xl lg:text-5xl font-bold text-secondary-900 dark:text-white mb-4">
             {t('getInTouch')}
           </h1>
-          <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
+          <p className="text-xl text-secondary-600 dark:text-gray-300 max-w-3xl mx-auto">
             {t('contactPageDescription')}
           </p>
         </div>
@@ -72,49 +72,49 @@ const ContactPage = () => {
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl shadow-lg p-8">
-                <h2 className="text-2xl font-bold text-secondary-900 mb-6">{t('sendMessage')}</h2>
+              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border dark:border-gray-700">
+                <h2 className="text-2xl font-bold text-secondary-900 dark:text-white mb-6">{t('sendMessage')}</h2>
                 
                 <form className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-secondary-700 mb-2">
+                      <label className="block text-sm font-medium text-secondary-700 dark:text-gray-300 mb-2">
                         {t('firstName')}
                       </label>
                       <input
                         type="text"
-                        className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
+                        className="w-full px-4 py-3 border border-secondary-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                         placeholder={t('firstNamePlaceholder')}
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-secondary-700 mb-2">
+                      <label className="block text-sm font-medium text-secondary-700 dark:text-gray-300 mb-2">
                         {t('lastName')}
                       </label>
                       <input
                         type="text"
-                        className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
+                        className="w-full px-4 py-3 border border-secondary-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                         placeholder={t('lastNamePlaceholder')}
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-secondary-700 mb-2">
+                    <label className="block text-sm font-medium text-secondary-700 dark:text-gray-300 mb-2">
                       {t('emailAddress')}
                     </label>
                     <input
                       type="email"
-                      className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
+                      className="w-full px-4 py-3 border border-secondary-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                       placeholder={t('emailPlaceholder')}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-secondary-700 mb-2">
+                    <label className="block text-sm font-medium text-secondary-700 dark:text-gray-300 mb-2">
                       {t('subject')}
                     </label>
-                    <select className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none">
+                    <select className="w-full px-4 py-3 border border-secondary-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                       <option>{t('generalInquiry')}</option>
                       <option>{t('courseSupport')}</option>
                       <option>{t('technicalIssue')}</option>
@@ -125,12 +125,12 @@ const ContactPage = () => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-secondary-700 mb-2">
+                    <label className="block text-sm font-medium text-secondary-700 dark:text-gray-300 mb-2">
                       {t('message')}
                     </label>
                     <textarea
                       rows={6}
-                      className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
+                      className="w-full px-4 py-3 border border-secondary-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none"
                       placeholder={t('messagePlaceholder')}
                     ></textarea>
                   </div>
@@ -148,40 +148,40 @@ const ContactPage = () => {
 
             {/* Contact Information */}
             <div className="space-y-8">
-              <div className="bg-secondary-50 rounded-2xl p-6">
-                <h3 className="text-xl font-semibold text-secondary-900 mb-6">{t('contactInformation')}</h3>
+              <div className="bg-secondary-50 dark:bg-gray-800 rounded-2xl p-6 border dark:border-gray-700">
+                <h3 className="text-xl font-semibold text-secondary-900 dark:text-white mb-6">{t('contactInformation')}</h3>
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => (
                     <div key={index} className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <info.icon className="w-6 h-6 text-primary-600" />
+                      <div className="w-12 h-12 bg-primary-100 dark:bg-blue-900/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <info.icon className="w-6 h-6 text-primary-600 dark:text-blue-400" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-secondary-900 mb-1">{info.title}</h4>
-                        <p className="text-secondary-700 mb-1">{info.content}</p>
-                        <p className="text-sm text-secondary-500">{info.description}</p>
+                        <h4 className="font-semibold text-secondary-900 dark:text-white mb-1">{info.title}</h4>
+                        <p className="text-secondary-700 dark:text-gray-300 mb-1">{info.content}</p>
+                        <p className="text-sm text-secondary-500 dark:text-gray-400">{info.description}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-primary-50 rounded-2xl p-6">
-                <h3 className="text-xl font-semibold text-secondary-900 mb-4">{t('needQuickHelp')}</h3>
-                <p className="text-secondary-600 mb-6">
+              <div className="bg-primary-50 dark:bg-blue-900/20 rounded-2xl p-6 border dark:border-gray-700">
+                <h3 className="text-xl font-semibold text-secondary-900 dark:text-white mb-4">{t('needQuickHelp')}</h3>
+                <p className="text-secondary-600 dark:text-gray-300 mb-6">
                   {t('selfServiceDescription')}
                 </p>
                 <div className="space-y-4">
                   {supportOptions.map((option, index) => (
-                    <div key={index} className="flex items-center justify-between p-3 bg-white rounded-lg">
+                    <div key={index} className="flex items-center justify-between p-3 bg-white dark:bg-gray-700 rounded-lg border dark:border-gray-600">
                       <div className="flex items-center space-x-3">
-                        <option.icon className="w-5 h-5 text-primary-600" />
+                        <option.icon className="w-5 h-5 text-primary-600 dark:text-blue-400" />
                         <div>
-                          <div className="font-medium text-secondary-900">{option.title}</div>
-                          <div className="text-sm text-secondary-500">{option.description}</div>
+                          <div className="font-medium text-secondary-900 dark:text-white">{option.title}</div>
+                          <div className="text-sm text-secondary-500 dark:text-gray-400">{option.description}</div>
                         </div>
                       </div>
-                      <button className="text-primary-600 hover:text-primary-700 font-medium text-sm">
+                      <button className="text-primary-600 dark:text-blue-400 hover:text-primary-700 dark:hover:text-blue-300 font-medium text-sm">
                         {option.action}
                       </button>
                     </div>
@@ -194,21 +194,21 @@ const ContactPage = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-16 bg-secondary-50">
+      <section className="py-16 bg-secondary-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-secondary-900 mb-4">{t('visitOurOffice')}</h2>
-            <p className="text-xl text-secondary-600">
+            <h2 className="text-3xl font-bold text-secondary-900 dark:text-white mb-4">{t('visitOurOffice')}</h2>
+            <p className="text-xl text-secondary-600 dark:text-gray-300">
               {t('officeVisitDescription')}
             </p>
           </div>
           
-          <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-            <div className="h-96 bg-secondary-200 flex items-center justify-center">
+          <div className="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg border dark:border-gray-700">
+            <div className="h-96 bg-secondary-200 dark:bg-gray-700 flex items-center justify-center">
               <div className="text-center">
-                <MapPin className="w-12 h-12 text-secondary-400 mx-auto mb-4" />
-                <p className="text-secondary-600">{t('mapPlaceholder')}</p>
-                <p className="text-sm text-secondary-500 mt-2">123 Education Street, Learning City, LC 12345</p>
+                <MapPin className="w-12 h-12 text-secondary-400 dark:text-gray-500 mx-auto mb-4" />
+                <p className="text-secondary-600 dark:text-gray-300">{t('mapPlaceholder')}</p>
+                <p className="text-sm text-secondary-500 dark:text-gray-400 mt-2">123 Education Street, Learning City, LC 12345</p>
               </div>
             </div>
           </div>
@@ -216,11 +216,11 @@ const ContactPage = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-secondary-900 mb-4">{t('frequentlyAskedQuestionsContact')}</h2>
-            <p className="text-xl text-secondary-600">
+            <h2 className="text-3xl font-bold text-secondary-900 dark:text-white mb-4">{t('frequentlyAskedQuestionsContact')}</h2>
+            <p className="text-xl text-secondary-600 dark:text-gray-300">
               {t('faqDescription')}
             </p>
           </div>
@@ -244,9 +244,9 @@ const ContactPage = () => {
                 answer: t('faqAnswer4')
               }
             ].map((faq, index) => (
-              <div key={index} className="bg-secondary-50 rounded-lg p-6">
-                <h3 className="font-semibold text-secondary-900 mb-3">{faq.question}</h3>
-                <p className="text-secondary-600">{faq.answer}</p>
+              <div key={index} className="bg-secondary-50 dark:bg-gray-800 rounded-lg p-6 border dark:border-gray-700">
+                <h3 className="font-semibold text-secondary-900 dark:text-white mb-3">{faq.question}</h3>
+                <p className="text-secondary-600 dark:text-gray-300">{faq.answer}</p>
               </div>
             ))}
           </div>

@@ -63,18 +63,18 @@ const AboutPage = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 to-secondary-50 py-20">
+      <section className="bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-gray-800 dark:to-gray-900 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <h1 className="text-4xl lg:text-5xl font-bold text-secondary-900 leading-tight">
+                <h1 className="text-4xl lg:text-5xl font-bold text-secondary-900 dark:text-white leading-tight">
                   {t('empoweringLearners')}
-                  <span className="block text-primary-600">{t('aroundTheWorld')}</span>
+                  <span className="block text-primary-600 dark:text-blue-400">{t('aroundTheWorld')}</span>
                 </h1>
-                <p className="text-xl text-secondary-600 leading-relaxed">
+                <p className="text-xl text-secondary-600 dark:text-gray-300 leading-relaxed">
                   {t('aboutDescription')}
                 </p>
               </div>
@@ -103,13 +103,13 @@ const AboutPage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-primary-600 mb-2">{stat.number}</div>
-                <div className="text-secondary-600">{stat.label}</div>
+                <div className="text-4xl font-bold text-primary-600 dark:text-blue-400 mb-2">{stat.number}</div>
+                <div className="text-secondary-600 dark:text-gray-300">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -117,25 +117,25 @@ const AboutPage = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-16 bg-secondary-50">
+      <section className="py-16 bg-secondary-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-900 dark:text-white mb-4">
               {t('ourCoreValues')}
             </h2>
-            <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
+            <p className="text-xl text-secondary-600 dark:text-gray-300 max-w-3xl mx-auto">
               {t('coreValuesDescription')}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-shadow">
-                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <value.icon className="w-8 h-8 text-primary-600" />
+              <div key={index} className="bg-white dark:bg-gray-900 rounded-xl p-6 text-center hover:shadow-lg transition-shadow border dark:border-gray-700">
+                <div className="w-16 h-16 bg-primary-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <value.icon className="w-8 h-8 text-primary-600 dark:text-blue-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-secondary-900 mb-3">{value.title}</h3>
-                <p className="text-secondary-600">{value.description}</p>
+                <h3 className="text-xl font-semibold text-secondary-900 dark:text-white mb-3">{value.title}</h3>
+                <p className="text-secondary-600 dark:text-gray-300">{value.description}</p>
               </div>
             ))}
           </div>
@@ -143,13 +143,13 @@ const AboutPage = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-900 dark:text-white mb-4">
               {t('meetOurTeam')}
             </h2>
-            <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
+            <p className="text-xl text-secondary-600 dark:text-gray-300 max-w-3xl mx-auto">
               {t('teamDescription')}
             </p>
           </div>
@@ -164,9 +164,9 @@ const AboutPage = () => {
                     className="w-48 h-48 rounded-full object-cover mx-auto group-hover:scale-105 transition-transform"
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-secondary-900 mb-1">{member.name}</h3>
-                <p className="text-primary-600 font-medium mb-3">{member.role}</p>
-                <p className="text-secondary-600 text-sm">{member.bio}</p>
+                <h3 className="text-xl font-semibold text-secondary-900 dark:text-white mb-1">{member.name}</h3>
+                <p className="text-primary-600 dark:text-blue-400 font-medium mb-3">{member.role}</p>
+                <p className="text-secondary-600 dark:text-gray-300 text-sm">{member.bio}</p>
               </div>
             ))}
           </div>
@@ -174,12 +174,12 @@ const AboutPage = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-16 bg-secondary-900 text-white">
+      <section className="py-16 bg-secondary-900 dark:bg-gray-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="text-3xl lg:text-4xl font-bold">{t('ourStory')}</h2>
-              <div className="space-y-4 text-secondary-300">
+              <div className="space-y-4 text-secondary-300 dark:text-gray-300">
                 <p>
                   {t('storyParagraph1')}
                 </p>
@@ -204,15 +204,15 @@ const AboutPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary-600">
+      <section className="py-16 bg-primary-600 dark:bg-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
             {t('readyToStartJourney')}
           </h2>
-          <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-primary-100 dark:text-blue-100 mb-8 max-w-2xl mx-auto">
             {t('transformCareersDescription')}
           </p>
-          <Link to="/courses" className="btn bg-white text-primary-600 hover:bg-primary-50">
+          <Link to="/courses" className="btn bg-white text-primary-600 hover:bg-primary-50 dark:bg-gray-100 dark:text-blue-600 dark:hover:bg-gray-200">
             {t('browseCourses')}
           </Link>
         </div>

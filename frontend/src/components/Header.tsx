@@ -177,39 +177,91 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
+          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900">
+            {/* Mobile Controls (Theme, Language, Search) */}
+            <div className="mb-4 pb-4 border-b border-gray-200 dark:border-gray-700">
+              {/* Mobile Search */}
+              <div className="relative mb-4">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500" />
+                <input
+                  type="text"
+                  placeholder={t('searchPlaceholder')}
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
+                />
+              </div>
+              
+              {/* Mobile Controls Row */}
+              <div className="flex items-center justify-between">
+                {/* Theme Toggle */}
+                <button
+                  onClick={toggleTheme}
+                  className="p-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                  aria-label="Toggle theme"
+                >
+                  {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+                </button>
+
+                {/* Language Switcher */}
+                <div className="flex items-center">
+                  <LanguageSwitcher />
+                </div>
+
+                {/* Mobile Cart */}
+                <Link 
+                  to="/cart" 
+                  className="relative p-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <ShoppingCart className="w-5 h-5" />
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-blue-600 text-white text-xs rounded-full flex items-center justify-center">
+                    0
+                  </span>
+                </Link>
+
+                {/* Mobile Notifications (if authenticated) */}
+                {isAuthenticated && (
+                  <button className="relative p-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <Bell className="w-5 h-5" />
+                    <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
+                      2
+                    </span>
+                  </button>
+                )}
+              </div>
+            </div>
+
             <nav className="flex flex-col space-y-4">
               <Link
                 to="/"
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors"
+                className="block py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('home')}
               </Link>
               <Link
                 to="/courses"
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors"
+                className="block py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('courses')}
               </Link>
               <Link
                 to="/instructors"
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors"
+                className="block py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('instructors')}
               </Link>
               <Link
                 to="/about"
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors"
+                className="block py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('about')}
               </Link>
               <Link
                 to="/contact"
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors"
+                className="block py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('contact')}
@@ -219,14 +271,14 @@ const Header = () => {
                 <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
                   <Link
                     to={getUserDashboardLink()}
-                    className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors"
+                    className="block py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {t('dashboardOverview')}
                   </Link>
                   <Link
                     to="/profile"
-                    className="block py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors"
+                    className="block py-3 px-4 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {t('profile')}
@@ -236,24 +288,24 @@ const Header = () => {
                       handleLogout()
                       setIsMenuOpen(false)
                     }}
-                    className="block w-full text-left py-2 text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 font-medium transition-colors"
+                    className="block w-full text-left py-3 px-4 text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 font-medium transition-colors rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20"
                   >
                     {t('logout')}
                   </button>
                 </div>
               ) : (
                 <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-                  <div className="flex flex-col space-y-2">
+                  <div className="flex flex-col space-y-3">
                     <Link 
                       to="/login" 
-                      className="block py-2 px-4 text-center border border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
+                      className="block py-3 px-4 text-center border border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors font-medium"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {t('login')}
                     </Link>
                     <Link 
                       to="/signup" 
-                      className="block py-2 px-4 text-center bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                      className="block py-3 px-4 text-center bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {t('signup')}

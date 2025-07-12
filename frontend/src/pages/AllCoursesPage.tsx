@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Search, Grid, List } from 'lucide-react'
+import { Search, Grid, List, Filter, X } from 'lucide-react'
 import CourseCard from '../components/CourseCard'
 import { CourseAPI, CategoryAPI } from '../services/api'
 import type { Course } from '../types'
@@ -19,6 +19,7 @@ const AllCoursesPage = () => {
   const [categories, setCategories] = useState<any[]>([])
   const [currentPage, setCurrentPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
+  const [showMobileFilters, setShowMobileFilters] = useState(false)
   const coursesPerPage = 12
 
   useEffect(() => {
@@ -169,140 +170,173 @@ const AllCoursesPage = () => {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
               {t('allCourses')}
             </h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto">
               {t('bestLearningMaterials')}
             </p>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col lg:flex-row gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
+          {/* Mobile Filter Button */}
+          <div className="lg:hidden">
+            <button
+              onClick={() => setShowMobileFilters(true)}
+              className="flex items-center justify-center w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-3 text-gray-700 dark:text-gray-300 font-medium"
+            >
+              <Filter className="w-5 h-5 mr-2" />
+              {t('filters')}
+            </button>
+          </div>
+
           {/* Sidebar Filters */}
-          <div className="lg:w-80 space-y-6">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
-              <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-6 flex items-center">
-                <Search className="w-5 h-5 mr-2 text-blue-600" />
-                {t('searchAndFilter')}
-              </h3>
-              
-              {/* Search */}
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                    {t('searchCourses')}
-                  </label>
-                  <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-                    <input
-                      type="text"
-                      placeholder={t('searchPlaceholder')}
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-                    />
-                  </div>
-                </div>
-
-                {/* Category Filter */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                    {t('category')}
-                  </label>
-                  <select
-                    value={selectedCategory}
-                    onChange={(e) => setSelectedCategory(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-                  >
-                    {categoryOptions.map((category) => (
-                      <option key={category.value} value={category.value}>
-                        {category.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Level Filter */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                    {t('level')}
-                  </label>
-                  <select
-                    value={selectedLevel}
-                    onChange={(e) => setSelectedLevel(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
-                  >
-                    {levels.map((level) => (
-                      <option key={level.value} value={level.value}>
-                        {level.label}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Price Filter */}
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                    {t('price')}
-                  </label>
-                  <div className="space-y-2">
-                    <label className="flex items-center">
-                      <input 
-                        type="radio" 
-                        name="price" 
-                        value="all" 
-                        checked={selectedPrice === 'all'}
-                        onChange={(e) => setSelectedPrice(e.target.value)}
-                        className="mr-2" 
-                      />
-                      <span className="text-sm text-gray-600 dark:text-gray-400">{t('allPrices')}</span>
-                    </label>
-                    <label className="flex items-center">
-                      <input 
-                        type="radio" 
-                        name="price" 
-                        value="free" 
-                        checked={selectedPrice === 'free'}
-                        onChange={(e) => setSelectedPrice(e.target.value)}
-                        className="mr-2" 
-                      />
-                      <span className="text-sm text-gray-600 dark:text-gray-400">{t('free')}</span>
-                    </label>
-                    <label className="flex items-center">
-                      <input 
-                        type="radio" 
-                        name="price" 
-                        value="paid" 
-                        checked={selectedPrice === 'paid'}
-                        onChange={(e) => setSelectedPrice(e.target.value)}
-                        className="mr-2" 
-                      />
-                      <span className="text-sm text-gray-600 dark:text-gray-400">{t('paid')}</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Popular Categories */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
-              <h4 className="font-bold text-lg text-gray-900 dark:text-white mb-4">
-                {t('popularCategories')}
-              </h4>
-              <div className="space-y-2">
-                {[t('programming'), t('design'), t('marketing'), t('business'), t('languages')].map((cat) => (
+          <div className={`lg:w-80 ${showMobileFilters ? 'fixed inset-0 z-50 lg:relative' : 'hidden lg:block'}`}>
+            {/* Mobile Overlay */}
+            {showMobileFilters && (
+              <div className="lg:hidden fixed inset-0 bg-black bg-opacity-50" onClick={() => setShowMobileFilters(false)} />
+            )}
+            
+            <div className={`${showMobileFilters ? 'fixed right-0 top-0 h-full w-80 bg-white dark:bg-gray-900 lg:relative lg:bg-transparent' : ''} space-y-6 overflow-y-auto`}>
+              {/* Mobile Header */}
+              {showMobileFilters && (
+                <div className="lg:hidden flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{t('filters')}</h3>
                   <button 
-                    key={cat}
-                    className="w-full text-left px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
+                    onClick={() => setShowMobileFilters(false)}
+                    className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
                   >
-                    {cat}
+                    <X className="w-5 h-5" />
                   </button>
-                ))}
+                </div>
+              )}
+              
+              <div className={`${showMobileFilters ? 'p-4' : ''} space-y-6`}>
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+                  <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-6 flex items-center">
+                    <Search className="w-5 h-5 mr-2 text-blue-600" />
+                    {t('searchAndFilter')}
+                  </h3>
+                  
+                  {/* Search */}
+                  <div className="space-y-6">
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                        {t('searchCourses')}
+                      </label>
+                      <div className="relative">
+                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+                        <input
+                          type="text"
+                          placeholder={t('searchPlaceholder')}
+                          value={searchTerm}
+                          onChange={(e) => setSearchTerm(e.target.value)}
+                          className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Category Filter */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                        {t('category')}
+                      </label>
+                      <select
+                        value={selectedCategory}
+                        onChange={(e) => setSelectedCategory(e.target.value)}
+                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+                      >
+                        {categoryOptions.map((category) => (
+                          <option key={category.value} value={category.value}>
+                            {category.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Level Filter */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                        {t('level')}
+                      </label>
+                      <select
+                        value={selectedLevel}
+                        onChange={(e) => setSelectedLevel(e.target.value)}
+                        className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+                      >
+                        {levels.map((level) => (
+                          <option key={level.value} value={level.value}>
+                            {level.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Price Filter */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                        {t('price')}
+                      </label>
+                      <div className="space-y-2">
+                        <label className="flex items-center">
+                          <input 
+                            type="radio" 
+                            name="price" 
+                            value="all" 
+                            checked={selectedPrice === 'all'}
+                            onChange={(e) => setSelectedPrice(e.target.value)}
+                            className="mr-2" 
+                          />
+                          <span className="text-sm text-gray-600 dark:text-gray-400">{t('allPrices')}</span>
+                        </label>
+                        <label className="flex items-center">
+                          <input 
+                            type="radio" 
+                            name="price" 
+                            value="free" 
+                            checked={selectedPrice === 'free'}
+                            onChange={(e) => setSelectedPrice(e.target.value)}
+                            className="mr-2" 
+                          />
+                          <span className="text-sm text-gray-600 dark:text-gray-400">{t('free')}</span>
+                        </label>
+                        <label className="flex items-center">
+                          <input 
+                            type="radio" 
+                            name="price" 
+                            value="paid" 
+                            checked={selectedPrice === 'paid'}
+                            onChange={(e) => setSelectedPrice(e.target.value)}
+                            className="mr-2" 
+                          />
+                          <span className="text-sm text-gray-600 dark:text-gray-400">{t('paid')}</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Popular Categories */}
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+                  <h4 className="font-bold text-lg text-gray-900 dark:text-white mb-4">
+                    {t('popularCategories')}
+                  </h4>
+                  <div className="space-y-2">
+                    {[t('programming'), t('design'), t('marketing'), t('business'), t('languages')].map((cat) => (
+                      <button 
+                        key={cat}
+                        className="w-full text-left px-3 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors"
+                      >
+                        {cat}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -310,22 +344,22 @@ const AllCoursesPage = () => {
           {/* Main Content */}
           <div className="flex-1">
             {/* Top Bar */}
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 sm:mb-8">
               <div>
-                <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                <p className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
                   {filteredCourses.length} {t('coursesFound')}
                 </p>
-                <p className="text-gray-600 dark:text-gray-400 mt-1">
+                <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm sm:text-base">
                   {t('bestLearningMaterials')}
                 </p>
               </div>
               
-              <div className="flex items-center space-x-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
                 {/* Sort */}
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
+                  className="w-full sm:w-auto px-4 py-2 sm:py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white text-sm"
                 >
                   {sortOptions.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -338,30 +372,30 @@ const AllCoursesPage = () => {
                 <div className="flex items-center border border-gray-300 dark:border-gray-600 rounded-xl overflow-hidden">
                   <button
                     onClick={() => setViewMode('grid')}
-                    className={`p-3 ${viewMode === 'grid' 
+                    className={`p-2 sm:p-3 ${viewMode === 'grid' 
                       ? 'bg-blue-600 text-white' 
                       : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700'
                     }`}
                   >
-                    <Grid className="w-5 h-5" />
+                    <Grid className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                   <button
                     onClick={() => setViewMode('list')}
-                    className={`p-3 ${viewMode === 'list' 
+                    className={`p-2 sm:p-3 ${viewMode === 'list' 
                       ? 'bg-blue-600 text-white' 
                       : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700'
                     }`}
                   >
-                    <List className="w-5 h-5" />
+                    <List className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                 </div>
               </div>
             </div>
 
             {/* Course Grid */}
-            <div className={`grid gap-8 ${
+            <div className={`grid gap-4 sm:gap-6 lg:gap-8 ${
               viewMode === 'grid' 
-                ? 'grid-cols-1 md:grid-cols-2 xl:grid-cols-3' 
+                ? 'grid-cols-1 sm:grid-cols-2 xl:grid-cols-3' 
                 : 'grid-cols-1'
             }`}>
               {getCurrentPageCourses().map((course) => (
@@ -371,14 +405,14 @@ const AllCoursesPage = () => {
 
             {/* Empty State */}
             {filteredCourses.length === 0 && (
-              <div className="text-center py-16">
-                <div className="w-24 h-24 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Search className="w-12 h-12 text-gray-400" />
+              <div className="text-center py-12 sm:py-16">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Search className="w-10 h-10 sm:w-12 sm:h-12 text-gray-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2">
                   {t('noResults')}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
                   {t('noCoursesMessage')}
                 </p>
               </div>
@@ -386,12 +420,12 @@ const AllCoursesPage = () => {
 
             {/* Pagination */}
             {filteredCourses.length > 0 && totalPages > 1 && (
-              <div className="flex justify-center mt-16">
-                <div className="flex items-center space-x-2">
+              <div className="flex justify-center mt-12 sm:mt-16">
+                <div className="flex items-center gap-1 sm:gap-2">
                   <button 
                     onClick={() => handlePageChange(currentPage - 1)}
                     disabled={currentPage === 1}
-                    className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-3 sm:px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
                   >
                     {t('previous')}
                   </button>
@@ -403,7 +437,7 @@ const AllCoursesPage = () => {
                         <button 
                           key={page}
                           onClick={() => handlePageChange(page)}
-                          className={`px-4 py-2 rounded-lg ${
+                          className={`px-3 sm:px-4 py-2 rounded-lg text-sm sm:text-base ${
                             currentPage === page 
                               ? 'bg-blue-600 text-white' 
                               : 'border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'
@@ -419,7 +453,7 @@ const AllCoursesPage = () => {
                   <button 
                     onClick={() => handlePageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
-                    className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-3 sm:px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
                   >
                     {t('next')}
                   </button>

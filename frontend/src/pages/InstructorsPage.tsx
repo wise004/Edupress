@@ -124,14 +124,14 @@ const InstructorsPage = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 to-secondary-50 py-20">
+      <section className="bg-gradient-to-br from-primary-50 to-secondary-50 dark:from-gray-800 dark:to-gray-900 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold text-secondary-900 mb-4">
+          <h1 className="text-4xl lg:text-5xl font-bold text-secondary-900 dark:text-white mb-4">
             {t('learnFromExperts')}
           </h1>
-          <p className="text-xl text-secondary-600 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-secondary-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
             {t('expertsDescription')}
           </p>
           
@@ -139,8 +139,8 @@ const InstructorsPage = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary-600 mb-2">{stat.number}</div>
-                <div className="text-secondary-600">{stat.label}</div>
+                <div className="text-3xl md:text-4xl font-bold text-primary-600 dark:text-blue-400 mb-2">{stat.number}</div>
+                <div className="text-secondary-600 dark:text-gray-300">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -151,17 +151,17 @@ const InstructorsPage = () => {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-secondary-900 dark:text-white mb-4">
               {t('meetOurInstructors')}
             </h2>
-            <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
+            <p className="text-xl text-secondary-600 dark:text-gray-300 max-w-3xl mx-auto">
               {t('worldClassProfessionals')}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {instructors.map((instructor) => (
-              <div key={instructor.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
+              <div key={instructor.id} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border dark:border-gray-700 overflow-hidden hover:shadow-xl transition-shadow group">
                 {/* Instructor Image */}
                 <div className="relative">
                   <img
@@ -169,28 +169,28 @@ const InstructorsPage = () => {
                     alt={instructor.name}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 right-4 bg-white rounded-full px-3 py-1 flex items-center space-x-1">
+                  <div className="absolute top-4 right-4 bg-white dark:bg-gray-800 rounded-full px-3 py-1 flex items-center space-x-1 border dark:border-gray-700">
                     <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                    <span className="text-sm font-medium">{instructor.rating}</span>
+                    <span className="text-sm font-medium text-gray-900 dark:text-white">{instructor.rating}</span>
                   </div>
                 </div>
 
                 {/* Instructor Info */}
                 <div className="p-6">
                   <div className="mb-4">
-                    <h3 className="text-xl font-semibold text-secondary-900 mb-1">
+                    <h3 className="text-xl font-semibold text-secondary-900 dark:text-white mb-1">
                       {instructor.name}
                     </h3>
-                    <p className="text-primary-600 font-medium mb-1">{instructor.title}</p>
-                    <p className="text-secondary-500 text-sm">{instructor.company}</p>
+                    <p className="text-primary-600 dark:text-blue-400 font-medium mb-1">{instructor.title}</p>
+                    <p className="text-secondary-500 dark:text-gray-400 text-sm">{instructor.company}</p>
                   </div>
 
-                  <p className="text-secondary-600 text-sm mb-4 line-clamp-3">
+                  <p className="text-secondary-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">
                     {instructor.bio}
                   </p>
 
                   {/* Stats */}
-                  <div className="flex items-center justify-between mb-4 text-sm text-secondary-600">
+                  <div className="flex items-center justify-between mb-4 text-sm text-secondary-600 dark:text-gray-300">
                     <div className="flex items-center space-x-1">
                       <Users className="w-4 h-4" />
                       <span>{instructor.students.toLocaleString()}</span>
@@ -210,13 +210,13 @@ const InstructorsPage = () => {
                     {instructor.expertise.slice(0, 3).map((skill, index) => (
                       <span
                         key={index}
-                        className="px-2 py-1 bg-primary-100 text-primary-700 rounded-full text-xs font-medium"
+                        className="px-2 py-1 bg-primary-100 dark:bg-blue-900/20 text-primary-700 dark:text-blue-400 rounded-full text-xs font-medium"
                       >
                         {skill}
                       </span>
                     ))}
                     {instructor.expertise.length > 3 && (
-                      <span className="px-2 py-1 bg-secondary-100 text-secondary-600 rounded-full text-xs">
+                      <span className="px-2 py-1 bg-secondary-100 dark:bg-gray-700 text-secondary-600 dark:text-gray-300 rounded-full text-xs">
                         +{instructor.expertise.length - 3} more
                       </span>
                     )}
@@ -225,7 +225,7 @@ const InstructorsPage = () => {
                   {/* Social Links and View Profile */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <a href={instructor.social.linkedin} className="text-secondary-400 hover:text-primary-600">
+                      <a href={instructor.social.linkedin} className="text-secondary-400 dark:text-gray-500 hover:text-primary-600 dark:hover:text-blue-400">
                         <Linkedin className="w-4 h-4" />
                       </a>
                       <a href={instructor.social.twitter} className="text-secondary-400 hover:text-primary-600">
