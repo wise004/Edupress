@@ -17,6 +17,9 @@ const resources = {
       
       // Course related
       "allCourses": "Barcha Kurslar",
+      "viewAllCourses": "Barcha kurslar",
+      "whyChooseUs": "Nega aynan biz?",
+      "learningAdvantages": "Biz bilan o'qish afzalliklari",
       "searchAndFilter": "Qidiruv va Filter",
       "searchCourses": "Kurs qidirish",
       "searchPlaceholder": "Kurs nomini kiriting...",
@@ -723,6 +726,9 @@ const resources = {
       
       // Course related
       "allCourses": "All Courses",
+      "viewAllCourses": "View All Courses",
+      "whyChooseUs": "Why Choose Us?",
+      "learningAdvantages": "Learning Advantages with Us",
       "searchAndFilter": "Search and Filter",
       "searchCourses": "Search courses",
       "searchPlaceholder": "Enter course name...",
@@ -1428,6 +1434,9 @@ const resources = {
       
       // Course related
       "allCourses": "Все Курсы",
+      "viewAllCourses": "Все курсы",
+      "whyChooseUs": "Почему именно мы?",
+      "learningAdvantages": "Преимущества обучения с нами",
       "searchAndFilter": "Поиск и Фильтр",
       "searchCourses": "Поиск курсов",
       "searchPlaceholder": "Введите название курса...",

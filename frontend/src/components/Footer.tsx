@@ -1,4 +1,4 @@
-import { BookOpen, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react'
+import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
@@ -11,11 +11,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
-                <BookOpen className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold">EduPress</span>
+            <Link to="/" className="flex items-center">
+              <img 
+                src="/Brend_name.png" 
+                alt="EduEx.uz" 
+                className="h-12 w-auto"
+              />
             </Link>
             
             <p className="text-secondary-300 leading-relaxed">
@@ -112,7 +113,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-primary-400" />
-                <span className="text-secondary-300">contact@edupress.com</span>
+                <span className="text-secondary-300">contact@eduex.uz</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-primary-400" />
@@ -148,7 +149,7 @@ const Footer = () => {
         <div className="border-t border-secondary-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-secondary-400 text-sm">
-              © 2025 EduPress. {t('allRightsReserved')}
+              © 2025 EduEx.uz. {t('allRightsReserved')}
             </div>
             <div className="flex items-center space-x-6 text-sm">
               <Link to="/privacy" className="text-secondary-400 hover:text-white transition-colors">

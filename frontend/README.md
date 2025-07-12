@@ -1,4 +1,4 @@
-# EduPress - Full-Stack Online Course Platform
+# EduEx.uz - Full-Stack Online Course Platform
 
 A comprehensive, modern online course platform with a React TypeScript frontend and Spring Boot backend. This project provides a complete learning management system with beautiful design, REST APIs, authentication, and all essential features for students, instructors, and administrators.
 

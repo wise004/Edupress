@@ -315,7 +315,7 @@ const HomePage = () => {
               to="/courses"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-colors inline-flex items-center"
             >
-              Barcha kurslar
+              {t('viewAllCourses')}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </div>
@@ -327,10 +327,10 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Nega aynan biz?
+              {t('whyChooseUs')}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400">
-              Biz bilan o'qish afzalliklari
+              {t('learningAdvantages')}
             </p>
           </div>
           

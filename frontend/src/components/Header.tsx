@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Menu, X, Search, ShoppingCart, BookOpen, User, LogOut, Sun, Moon, Bell } from 'lucide-react'
+import { Menu, X, Search, ShoppingCart, User, LogOut, Sun, Moon, Bell } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 import { useTheme } from '../contexts/ThemeContext'
 import { useTranslation } from 'react-i18next'
@@ -37,11 +37,12 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <BookOpen className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-bold text-gray-900 dark:text-white">EduPress</span>
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/Brend_name.png" 
+              alt="EduEx.uz" 
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
