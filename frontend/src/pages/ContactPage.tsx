@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Clock, Send, MessageSquare, HelpCircle, Users } from 'lucide-react'
+import { Mail, Phone, MapPin, Clock, Send, MessageSquare, HelpCircle, Users, ExternalLink } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 const ContactPage = () => {
@@ -8,7 +8,7 @@ const ContactPage = () => {
     {
       icon: Mail,
       title: t('emailUs'),
-      content: 'contact@edupress.com',
+      content: 'contact@eduex.uz',
       description: t('emailDescription')
     },
     {
@@ -36,19 +36,22 @@ const ContactPage = () => {
       icon: MessageSquare,
       title: t('liveChat'),
       description: t('liveChatDescription'),
-      action: t('startChat')
+      action: t('startChat'),
+      link: 'https://t.me/EduEx_Forum'
     },
     {
       icon: HelpCircle,
       title: t('helpCenter'),
       description: t('helpCenterDescription'),
-      action: t('visitHelpCenter')
+      action: t('visitHelpCenter'),
+      link: 'https://t.me/EduEx_Forum'
     },
     {
       icon: Users,
       title: t('communityForum'),
       description: t('communityForumDescription'),
-      action: t('joinCommunity')
+      action: t('joinCommunity'),
+      link: 'https://t.me/EduEx_Forum'
     }
   ]
 
@@ -181,9 +184,15 @@ const ContactPage = () => {
                           <div className="text-sm text-secondary-500 dark:text-gray-400">{option.description}</div>
                         </div>
                       </div>
-                      <button className="text-primary-600 dark:text-blue-400 hover:text-primary-700 dark:hover:text-blue-300 font-medium text-sm">
-                        {option.action}
-                      </button>
+                      <a 
+                        href={option.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary-600 dark:text-blue-400 hover:text-primary-700 dark:hover:text-blue-300 font-medium text-sm inline-flex items-center space-x-1"
+                      >
+                        <span>{option.action}</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
                     </div>
                   ))}
                 </div>

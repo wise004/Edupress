@@ -24,9 +24,9 @@ const Header = () => {
     if (!user) return '/dashboard'
     switch (user.role) {
       case 'ADMIN':
-        return '/admin'
+        return '/admin-dashboard'
       case 'INSTRUCTOR':
-        return '/instructor'
+        return '/instructor-dashboard'
       default:
         return '/dashboard'
     }
